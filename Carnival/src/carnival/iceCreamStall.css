@@ -1,0 +1,61 @@
+#AnchorPane{
+    -fx-background-image: url("iceCreamStall-counter.png");
+    -fx-background-size: cover;
+}
+
+.vanilla{
+    -fx-background-image: url("vanilla.png");
+    -fx-background-size: cover ;
+}
+
+.strawberry{
+    -fx-background-image: url("strawberry.png");
+    -fx-background-size: contain ;
+}
+
+.chocolate{
+    -fx-background-image: url("chocolate.png");
+    -fx-background-size: cover ;
+}
+
+.cup{
+    -fx-background-image: url("cup.png");
+    -fx-background-size: contain ;
+}
+
+.cone{
+    -fx-background-image: url("cone.png");
+    -fx-background-size: stretch ;
+}
+
+.nuts{
+    -fx-background-image: url("nuts.png");
+    -fx-background-size: contain ;
+}
+
+.sprinkles{
+    -fx-background-image: url("sprinkles.png");
+    -fx-background-size: contain ;
+}
+
+.chocolateChips{
+    -fx-background-image: url("chocolatechips.png");
+    -fx-background-size: contain ;
+}
+
+.chocolateSauce{
+    -fx-background-image: url("chocolatesauce.png");
+    -fx-background-size: contain ;
+}
+
+.strawberrySauce{
+    -fx-background-image: url("strawberrysauce.png");
+    -fx-background-size: contain ;
+}
+
+.pistachioSauce{
+    -fx-background-image: url("pistachiosauce.png");
+    -fx-background-size: contain ;
+}
+
+

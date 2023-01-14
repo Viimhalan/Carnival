@@ -1,0 +1,12 @@
+#AnchorPane{
+    -fx-background-image: url("1208.jpg");
+    -fx-background-size: cover;
+}
+
+.iceCreamStall-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("iceCreamStall.png");
+    -fx-background-size: cover;
+}
+
