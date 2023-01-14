@@ -39,7 +39,10 @@
       </Label>
       <Pane fx:id="orderPane" layoutX="768.0" layoutY="115.0" prefHeight="455.0" prefWidth="258.0">
          <children>
-            <TextArea fx:id="orderBill" prefHeight="218.0" prefWidth="258.0" visible="false" />
+            <TextArea fx:id="orderBill" editable="false" layoutY="42.0" prefHeight="150.0" prefWidth="258.0" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font></TextArea>
             <Button fx:id="yes" layoutX="43.0" layoutY="331.0" mnemonicParsing="false" onAction="#yes_Clicked" style="-fx-background-color: white; -fx-border-style: none;" text="Yes">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />

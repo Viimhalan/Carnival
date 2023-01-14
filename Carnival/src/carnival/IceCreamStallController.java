@@ -31,77 +31,44 @@ import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
  
-    @FXML
-    private Label flavourLabel;
-
-    @FXML
-    private Button no;
-
-    @FXML
-    private Button chocolateSauce;
-
-    @FXML
-    private Pane flavourPane;
-
-    @FXML
-    private Button yes;
-
-    @FXML
-    private Button chocolateChips;
-
-    @FXML
-    private Label orderLabel;
-
-    @FXML
-    private Button strawberry;
-
-    @FXML
-    private Button cone;
-
-    @FXML
-    private Label toppingLabel;
-
-    @FXML
-    private Pane toppingPane;
-
-    @FXML
-    private Button berrySauce;
-
-    @FXML
-    private Pane orderPane;
-
-    @FXML
-    private Pane containerPane;
-
-    @FXML
-    private TextArea orderBill;
-
-    @FXML
-    private Button nuts;
-
-    @FXML
-    private Button nutSauce;
-
-    @FXML
-    private Label containerLabel;
-
-    @FXML
-    private Button sprinkles;
-
-    @FXML
-    private Button checkout;
-
-    @FXML
-    private Button vanilla;
-
-    @FXML
-    private Button chocolate;
-
-    @FXML
-    private Button cup;
+    @FXML private Label flavourLabel; 
+    @FXML private Button no; 
+    @FXML private Button chocolateSauce; 
+    @FXML private Pane flavourPane; 
+    @FXML private Button yes; 
+    @FXML private Button chocolateChips; 
+    @FXML private Label orderLabel; 
+    @FXML private Button strawberry; 
+    @FXML private Button cone; 
+    @FXML private Label toppingLabel; 
+    @FXML private Pane toppingPane; 
+    @FXML private Button berrySauce; 
+    @FXML private Pane orderPane; 
+    @FXML private Pane containerPane; 
+    @FXML private TextArea orderBill; 
+    @FXML private Button nuts; 
+    @FXML private Button nutSauce; 
+    @FXML private Label containerLabel; 
+    @FXML private Button sprinkles; 
+    @FXML private Button checkout; 
+    @FXML private Button vanilla; 
+    @FXML private Button chocolate; 
+    @FXML  private Button cup;
     private Stage stage;
     private Scene scene;
     private Parent root;
+//    private boolean vanillaClicked = vanilla.isArmed();
+//    private boolean strawberryClicked = strawberry.isArmed();
+//    private boolean chocolateClicked = chocolate.isArmed();
+//    private boolean cupClicked = cup.isArmed();
+//    private boolean coneClicked = cone.isArmed();
+//    private boolean nutsClicked = nuts.isArmed();
+//    private boolean sprinklesClicked = sprinkles.isArmed();
+//    private boolean chocolateChipsClicked = chocolateChips.isArmed();
+//    private boolean chocolateSauceClicked = chocolateSauce.isArmed();
+//    private boolean berrySauceClicked = berrySauce.isArmed();
+//    private boolean nutSauceClicked = nutSauce.isArmed();
+//    private boolean checkoutClicked = checkout.isArmed();
     
     @FXML
     void yes_Clicked(ActionEvent event) {
@@ -119,358 +86,681 @@ public class IceCreamStallController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    void vanilla_Clicked(ActionEvent event) {
+    
+    void container(){
         flavourLabel.setVisible(false);
         flavourPane.setVisible(false);
         containerLabel.setVisible(true);
         containerPane.setVisible(true);
-        orderVanilla();
-    } 
-
-    @FXML
-    void strawberry_Clicked(ActionEvent event) {
-        flavourLabel.setVisible(false);
-        flavourPane.setVisible(false);
-        containerLabel.setVisible(true);
-        containerPane.setVisible(true);
-        orderStrawberry();
     }
-
-    @FXML
-    void chocolate_Clicked(ActionEvent event) {
-        IceCream order = new Chocolate();
-        flavourLabel.setVisible(false);
-        flavourPane.setVisible(false);
-        containerLabel.setVisible(true);
-        containerPane.setVisible(true);
-        orderChocolate();
-    }
-
-    @FXML
-    void cup_Clicked(ActionEvent event) {
-        containerLabel.setVisible(false);
-        containerPane.setVisible(false);
-        toppingLabel.setVisible(true);
-        toppingPane.setVisible(true);;
-    }
-
-    @FXML
-    void cone_Clicked(ActionEvent event) {
+    
+    void topping(){
         containerLabel.setVisible(false);
         containerPane.setVisible(false);
         toppingLabel.setVisible(true);
         toppingPane.setVisible(true);
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void nuts_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void sprinkles_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void chocolateChips_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void chocolateSauce_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void berrySauce_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
-    }
-
-    @FXML
-    void nutSauce_Clicked(ActionEvent event) {
-        if(vanilla.isArmed()){
-            orderVanilla();
-        }
-        else if(strawberry.isArmed()){
-            orderStrawberry();
-        }
-        else if(chocolate.isArmed()){
-            orderChocolate();    
-        }
     }
     
-    @FXML
-    void checkout_Clicked(ActionEvent event) {
+    void order(){
         toppingLabel.setVisible(false);
         toppingPane.setVisible(false);
         orderLabel.setVisible(true);
         orderPane.setVisible(true);
         orderBill.setVisible(true);
-        
     }
     
-    void orderVanilla(){
-        if(vanilla.isArmed() == true){
+    @FXML
+    boolean vanilla_Clicked(ActionEvent event) {
+        IceCream order = new Vanilla();
+        container();
+        return true;
+    }
+    
+    @FXML
+    boolean strawberry_Clicked(ActionEvent event) {
+        IceCream order = new Strawberry();
+        container();
+        return true;
+    }
+
+    @FXML
+    boolean chocolate_Clicked(ActionEvent event) {
+        IceCream order = new Chocolate();
+        container();
+        return true;
+    }
+
+    @FXML
+    boolean cup_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
             IceCream order = new Vanilla();
-            System.out.println(order.getDescription());
-            if(cup.isArmed() == true){
+            order = new Cup(order);
+            topping();
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            order = new Cup(order);
+            topping();
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            order = new Cup(order);
+            topping();
+        }
+        return true;
+    }
+
+    @FXML
+    boolean cone_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            order = new Cone(order);
+            topping();
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            order = new Cone(order);
+            topping();
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            order = new Cone(order);
+            topping();
+        }
+        return true;
+    }
+
+    @FXML
+    boolean nuts_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
                 order = new Cup(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
+                order = new Nuts(order);
+            }
+            else {
+                if (cone_Clicked(event) == true){
+                    order = new Cone(order);
                     order = new Nuts(order);
-                    System.out.println(order.getDescription());
-                }
-                if(sprinkles.isArmed() == true){
-                    order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateChips.isArmed() == true){
-                    order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateSauce.isArmed() == true){
-                    order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(berrySauce.isArmed() == true){
-                    order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(nutSauce.isArmed() == true){
-                    order = new NutSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
                 }
             }
-            else if(cone.isArmed()){
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new Nuts(order);
+            }
+            else if (cone_Clicked(event) == true){
                 order = new Cone(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
+                order = new Nuts(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new Nuts(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new Nuts(order);
+            }
+        }
+        nuts.setDisable(true);
+        return true;
+    }
+
+    @FXML
+    boolean sprinkles_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new Sprinkles(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new Sprinkles(order);
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new Sprinkles(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new Sprinkles(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new Sprinkles(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new Sprinkles(order);
+            }
+        }
+        sprinkles.setDisable(true);
+        return true;
+    }
+
+    @FXML
+    boolean chocolateChips_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateChips(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateChips(order);
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateChips(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateChips(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateChips(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateChips(order);
+            }
+        }
+        chocolateChips.setDisable(true);
+        return true;
+    }
+
+    @FXML
+    boolean chocolateSauce_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateSauce(order);
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateSauce(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new ChocolateSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new ChocolateSauce(order);
+            }
+        }
+        chocolateSauce.setDisable(true);
+        return true;
+    }
+
+    @FXML
+    boolean berrySauce_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new StrawberrySauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new StrawberrySauce(order);
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new StrawberrySauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new StrawberrySauce(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new StrawberrySauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new StrawberrySauce(order);
+            }
+        }
+        berrySauce.setDisable(true);
+        return true;
+    }
+
+    @FXML
+    boolean nutSauce_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new NutSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new NutSauce(order);
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new NutSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new NutSauce(order);
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                order = new NutSauce(order);
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                order = new NutSauce(order);
+            }
+        }
+        nutSauce.setDisable(true);
+        return true;
+    }
+    
+    @FXML
+    void checkout_Clicked(ActionEvent event) {
+        if(vanilla_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                if(nuts.isArmed()){
                     order = new Nuts(order);
-                    System.out.println(order.getDescription());
                 }
-                if(sprinkles.isArmed() == true){
+                if(sprinkles.isArmed()){
                     order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
                 }
-                if(chocolateChips.isArmed() == true){
+                if(chocolateChips.isArmed()){
                     order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
                 }
-                if(chocolateSauce.isArmed() == true){
+                if(chocolateSauce.isArmed()){
                     order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
                 }
-                if(berrySauce.isArmed() == true){
+                if(berrySauce.isArmed()){
                     order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
                 }
-                if(nutSauce.isArmed() == true){
+                if(nutSauce.isArmed()){
                     order = new NutSauce(order);
-                    System.out.println(order.getDescription());
                 }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
+                order();
+                orderBill.setText(order.getDescription());
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                if(nuts_Clicked(event) == true){
+                    order = new Nuts(order);
                 }
+                if(sprinkles_Clicked(event) == true){
+                    order = new Sprinkles(order);
+                }
+                if(chocolateChips_Clicked(event) == true){
+                    order = new ChocolateChips(order);
+                }
+                if(chocolateSauce_Clicked(event) == true){
+                    order = new ChocolateSauce(order);
+                }
+                if(berrySauce_Clicked(event) == true){
+                    order = new StrawberrySauce(order);
+                }
+                if(nutSauce_Clicked(event) == true){
+                    order = new NutSauce(order);
+                }
+                order();
+                orderBill.setText(order.getDescription());
+            }
+        }
+        else if(strawberry_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                if(nuts_Clicked(event) == true){
+                    order = new Nuts(order);
+                }
+                if(sprinkles_Clicked(event) == true){
+                    order = new Sprinkles(order);
+                }
+                if(chocolateChips_Clicked(event) == true){
+                    order = new ChocolateChips(order);
+                }
+                if(chocolateSauce_Clicked(event) == true){
+                    order = new ChocolateSauce(order);
+                }
+                if(berrySauce_Clicked(event) == true){
+                    order = new StrawberrySauce(order);
+                }
+                if(nutSauce_Clicked(event) == true){
+                    order = new NutSauce(order);
+                }
+                order();
+                orderBill.setText(order.getDescription());
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                if(nuts_Clicked(event) == true){
+                    order = new Nuts(order);
+                }
+                if(sprinkles_Clicked(event) == true){
+                    order = new Sprinkles(order);
+                }
+                if(chocolateChips_Clicked(event) == true){
+                    order = new ChocolateChips(order);
+                }
+                if(chocolateSauce_Clicked(event) == true){
+                    order = new ChocolateSauce(order);
+                }
+                if(berrySauce_Clicked(event) == true){
+                    order = new StrawberrySauce(order);
+                }
+                if(nutSauce_Clicked(event) == true){
+                    order = new NutSauce(order);
+                }
+                order();
+                orderBill.setText(order.getDescription());
+            }
+        }
+        else if(chocolate_Clicked(event) == true){
+            IceCream order = new Vanilla();
+            if(cup_Clicked(event) == true){
+                order = new Cup(order);
+                if(nuts_Clicked(event) == true){
+                    order = new Nuts(order);
+                }
+                if(sprinkles_Clicked(event) == true){
+                    order = new Sprinkles(order);
+                }
+                if(chocolateChips_Clicked(event) == true){
+                    order = new ChocolateChips(order);
+                }
+                if(chocolateSauce_Clicked(event) == true){
+                    order = new ChocolateSauce(order);
+                }
+                if(berrySauce_Clicked(event) == true){
+                    order = new StrawberrySauce(order);
+                }
+                if(nutSauce_Clicked(event) == true){
+                    order = new NutSauce(order);
+                }
+                order();
+                orderBill.setText(order.getDescription());
+            }
+            else if (cone_Clicked(event) == true){
+                order = new Cone(order);
+                if(nuts_Clicked(event) == true){
+                    order = new Nuts(order);
+                }
+                if(sprinkles_Clicked(event) == true){
+                    order = new Sprinkles(order);
+                }
+                if(chocolateChips_Clicked(event) == true){
+                    order = new ChocolateChips(order);
+                }
+                if(chocolateSauce_Clicked(event) == true){
+                    order = new ChocolateSauce(order);
+                }
+                if(berrySauce_Clicked(event) == true){
+                    order = new StrawberrySauce(order);
+                }
+                if(nutSauce_Clicked(event) == true){
+                    order = new NutSauce(order);
+                }
+                order();
+                orderBill.setText(order.getDescription());
             }
         }
     }
     
-    void orderChocolate(){
-        if(chocolate.isArmed() == true){
-            IceCream order = new Chocolate();
-            System.out.println(order.getDescription());
-            if(cup.isArmed() == true){
-                order = new Cup(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
-                    order = new Nuts(order);
-                    System.out.println(order.getDescription());
-                }
-                if(sprinkles.isArmed() == true){
-                    order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateChips.isArmed() == true){
-                    order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateSauce.isArmed() == true){
-                    order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(berrySauce.isArmed() == true){
-                    order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(nutSauce.isArmed() == true){
-                    order = new NutSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
-                }
-            }
-            else if(cone.isArmed()){
-                order = new Cone(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
-                    order = new Nuts(order);
-                    System.out.println(order.getDescription());
-                }
-                if(sprinkles.isArmed() == true){
-                    order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateChips.isArmed() == true){
-                    order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateSauce.isArmed() == true){
-                    order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(berrySauce.isArmed() == true){
-                    order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(nutSauce.isArmed() == true){
-                    order = new NutSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
-                }
-            }
-        }
-    }
-    
-    void orderStrawberry(){
-        if(strawberry.isArmed() == true){
-            IceCream order = new Strawberry();
-            System.out.println(order.getDescription());
-            if(cup.isArmed() == true){
-                order = new Cup(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
-                    order = new Nuts(order);
-                    System.out.println(order.getDescription());
-                }
-                if(sprinkles.isArmed() == true){
-                    order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateChips.isArmed() == true){
-                    order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateSauce.isArmed() == true){
-                    order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(berrySauce.isArmed() == true){
-                    order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(nutSauce.isArmed() == true){
-                    order = new NutSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
-                }
-            }
-            else if(cone.isArmed()){
-                order = new Cone(order);
-                System.out.println(order.getDescription());
-                if(nuts.isArmed() == true){
-                    order = new Nuts(order);
-                    System.out.println(order.getDescription());
-                }
-                if(sprinkles.isArmed() == true){
-                    order = new Sprinkles(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateChips.isArmed() == true){
-                    order = new ChocolateChips(order);
-                    System.out.println(order.getDescription());
-                }
-                if(chocolateSauce.isArmed() == true){
-                    order = new ChocolateSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(berrySauce.isArmed() == true){
-                    order = new StrawberrySauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(nutSauce.isArmed() == true){
-                    order = new NutSauce(order);
-                    System.out.println(order.getDescription());
-                }
-                if(checkout.isArmed() == true){
-                    System.out.println(order.getDescription());
-                }
-            }
-        }
-    }
+//    void orderIceCream(){
+//        
+//        if(vanilla.isArmed() == true){
+//            IceCream order = new Vanilla();
+//            System.out.println(order.getDescription());
+//            if(cup.isArmed() == true){
+//                order = new Cup(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//            else if(cone.isArmed() == true){
+//                order = new Cone(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//        }
+//        else if(strawberry.isArmed() == true){
+//            IceCream order = new Strawberry();
+//            System.out.println(order.getDescription());
+//            if(cup.isArmed() == true){
+//                order = new Cup(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//            else if(cone.isArmed() == true){
+//                order = new Cone(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//        }
+//        else if(chocolate.isArmed() == true){
+//            IceCream order = new Chocolate();
+//            System.out.println(order.getDescription());
+//            if(cup.isArmed() == true){
+//                order = new Cup(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//            else if(cone.isArmed() == true){
+//                order = new Cone(order);
+//                System.out.println(order.getDescription());
+//                if(nuts.isArmed() == true){
+//                    order = new Nuts(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(sprinkles.isArmed() == true){
+//                    order = new Sprinkles(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateChips.isArmed() == true){
+//                    order = new ChocolateChips(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(chocolateSauce.isArmed() == true){
+//                    order = new ChocolateSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(berrySauce.isArmed() == true){
+//                    order = new StrawberrySauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(nutSauce.isArmed() == true){
+//                    order = new NutSauce(order);
+//                    System.out.println(order.getDescription());
+//                }
+//                if(checkout.isArmed() == true){
+//                    System.out.println(order.getDescription());
+//                }
+//            }
+//        }
+//    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
     
 }
