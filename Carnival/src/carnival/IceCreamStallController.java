@@ -30,6 +30,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
@@ -43,7 +44,7 @@ public class IceCreamStallController implements Initializable {
     @FXML private CheckBox sprinklesBox;  
     @FXML private CheckBox chocolateChipsBox; 
     @FXML private ImageView cone; 
-    @FXML private TextArea orderBill; 
+    @FXML private TextField orderBill; 
     @FXML private ImageView nutSauce; 
     @FXML private Label containerLabel; 
     @FXML private ImageView sprinkles; 
@@ -53,7 +54,8 @@ public class IceCreamStallController implements Initializable {
     @FXML private TextField flavourBox;
     @FXML private TextField containerBox;
     @FXML private TextField sauceBox;
-    @FXML private Button checkout; 
+    @FXML private Button checkout;
+    @FXML private Button yes; 
     @FXML private ImageView vanilla; 
     @FXML private Label flavourLabel;
     @FXML private ImageView strawberry;
@@ -68,19 +70,35 @@ public class IceCreamStallController implements Initializable {
     @FXML private ImageView cup; 
     @FXML private ImageView chocolate;
     @FXML private Pane iceCreamPane;
+    @FXML private Text invalidFlavour;
+    @FXML private Text invalidContainer;
     private Stage stage;
     private Scene scene;
     private Parent root;
     
     
     @FXML
-    void yes_Clicked(ActionEvent event) {
+    boolean yes_Clicked(ActionEvent event) {
         clear();
+        vanilla.setVisible(false);
+        cone.setVisible(false);
+        strawberry.setVisible(false);
+        chocolate.setVisible(false);
+        chocolateSauce.setVisible(false);
+        nutSauce.setVisible(false);
+        berrySauce.setVisible(false);
+        nuts.setVisible(false);
+        sprinkles.setVisible(false);
+        chocolateChips.setVisible(false);
+        cup.setVisible(false);
+        orderBill.setVisible(false);
+        orderBill.clear();
         orderLabel.setVisible(false);
         orderPane.setVisible(false);
         flavourLabel.setVisible(true);
         flavourPane.setVisible(true);
         menuPane.setVisible(true);
+        return true;
     }
 
     @FXML
@@ -97,6 +115,7 @@ public class IceCreamStallController implements Initializable {
         flavourPane.setVisible(false);
         containerLabel.setVisible(true);
         containerPane.setVisible(true);
+        invalidFlavour.setVisible(false);
     }
     
     void sauce(){
@@ -104,6 +123,7 @@ public class IceCreamStallController implements Initializable {
         containerPane.setVisible(false);
         sauceLabel.setVisible(true);
         saucePane.setVisible(true);
+        invalidContainer.setVisible(false);
     }
     
     void topping(){
@@ -119,20 +139,10 @@ public class IceCreamStallController implements Initializable {
         toppingPane.setVisible(false);
         orderLabel.setVisible(true);
         orderPane.setVisible(true);
+        orderBill.setVisible(true);
     }
     
     void clear(){
-        vanilla.setVisible(false);
-        cone.setVisible(false);
-        strawberry.setVisible(false);
-        chocolate.setVisible(false);
-        chocolateSauce.setVisible(false);
-        nutSauce.setVisible(false);
-        berrySauce.setVisible(false);
-        nuts.setVisible(false);
-        sprinkles.setVisible(false);
-        chocolateChips.setVisible(false);
-        cup.setVisible(false);
         flavourBox.clear();
         containerBox.clear();
         sauceBox.clear();
@@ -144,7 +154,18 @@ public class IceCreamStallController implements Initializable {
     
     @FXML
     void nextFlavour_Clicked(ActionEvent event) throws IOException {
-        container();
+        if(flavourBox.getText().equalsIgnoreCase("vanilla")){
+            container();
+        }
+        else if(flavourBox.getText().equalsIgnoreCase("strawberry")){
+            container();
+        }
+        else if(flavourBox.getText().equalsIgnoreCase("chocolate")){
+            container();
+        }
+        else{
+            invalidFlavour.setVisible(true);
+        }
     }
     
     @FXML
@@ -153,30 +174,44 @@ public class IceCreamStallController implements Initializable {
             vanilla.setVisible(true);
             if(containerBox.getText().equalsIgnoreCase("cup")){
                 cup.setVisible(true);
+                sauce();
             }
             else if(containerBox.getText().equalsIgnoreCase("cone")){
                 cone.setVisible(true);
+                sauce();
+            }
+            else{
+                invalidContainer.setVisible(true);
             }
         }
         else if(flavourBox.getText().equalsIgnoreCase("strawberry")){
             strawberry.setVisible(true);
             if(containerBox.getText().equalsIgnoreCase("cup")){
                 cup.setVisible(true);
+                sauce();
             }
             else if(containerBox.getText().equalsIgnoreCase("cone")){
                 cone.setVisible(true);
+                sauce();
+            }
+            else{
+                invalidContainer.setVisible(true);
             }
         }
         else if(flavourBox.getText().equalsIgnoreCase("chocolate")){
             chocolate.setVisible(true);
             if(containerBox.getText().equalsIgnoreCase("cup")){
                 cup.setVisible(true);
+                sauce();
             }
             else if(containerBox.getText().equalsIgnoreCase("cone")){
                 cone.setVisible(true);
+                sauce();
+            }
+            else{
+                invalidContainer.setVisible(true);
             }
         }
-        sauce();
     }
     
     @FXML
@@ -204,281 +239,434 @@ public class IceCreamStallController implements Initializable {
         if(chocolateChipsBox.isSelected()){
             chocolateChips.setVisible(true);
         }
+        orderIceCream();
         order();
     }
     
     void orderIceCream(){
-        final String flavour = flavourBox.getText();
-        final String container = containerBox.getText();
-        final String sauce = sauceBox.getText();
-        
-        if(flavour.equalsIgnoreCase("vanilla")){
-            IceCream order = new Vanilla();
-            if(container.equalsIgnoreCase("cup")){
-                order = new Cup(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
+        do{
+            String flavour = flavourBox.getText();
+            if(flavour.equalsIgnoreCase("vanilla")){
+                IceCream order = new Vanilla();
+                do{
+                    String container = containerBox.getText();  
+                    if(container.equalsIgnoreCase("cup")){
+                        order = new Cup(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
+                    else if(container.equalsIgnoreCase("cone")){
+                        order = new Cone(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
+                }while(!containerBox.getText().isEmpty());
             }
-            else if(container.equalsIgnoreCase("cone")){
-                order = new Cone(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
+            else if(flavour.equalsIgnoreCase("strawberry")){
+                IceCream order = new Strawberry();
+                do{
+                    String container = containerBox.getText();
+                    if(container.equalsIgnoreCase("cup")){
+                        order = new Cup(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
+                    else if(container.equalsIgnoreCase("cone")){
+                        order = new Cone(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
+                }while(!containerBox.getText().isEmpty());
             }
-        }
-        else if(flavour.equalsIgnoreCase("strawberry")){
-            IceCream order = new Strawberry();
-            if(container.equalsIgnoreCase("cup")){
-                order = new Cup(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
+            else if(flavour.equalsIgnoreCase("chocolate")){
+                IceCream order = new Chocolate();
+                do{
+                    String container = containerBox.getText();
+                    if(container.equalsIgnoreCase("cup")){
+                        order = new Cup(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
+                    else if(container.equalsIgnoreCase("cone")){
+                        order = new Cone(order);
+                        do{
+                            String sauce = sauceBox.getText();
+                            sauceBox.clear();
+                            if(sauce.equalsIgnoreCase("chocolate")){
+                                order = new ChocolateSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("berry")){
+                                order = new StrawberrySauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else if(sauce.equalsIgnoreCase("nut")){
+                                order = new NutSauce(order);
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                            else {
+                                if(nutsBox.isSelected()){
+                                    order = new Nuts(order);
+                                }
+                                if(sprinklesBox.isSelected()){
+                                    order = new Sprinkles(order);
+                                }
+                                if(chocolateChipsBox.isSelected()){
+                                    order = new ChocolateChips(order);
+                                }
+                                System.out.println(order.getDescription());
+                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+                                clear();
+                            }
+                        }while(!sauceBox.getText().isEmpty());
                     }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
+                }while(!containerBox.getText().isEmpty());
             }
-            else if(container.equalsIgnoreCase("cone")){
-                order = new Cone(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-            }
-        }
-        else if(flavour.equalsIgnoreCase("chocolate")){
-            IceCream order = new Chocolate();
-            if(container.equalsIgnoreCase("cup")){
-                order = new Cup(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-            }
-            else if(container.equalsIgnoreCase("cone")){
-                order = new Cone(order);
-                if(sauce.equalsIgnoreCase("chocolate")){
-                    order = new ChocolateSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("berry")){
-                    order = new StrawberrySauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-                else if(sauce.equalsIgnoreCase("nut")){
-                    order = new NutSauce(order);
-                    if(nutsBox.isSelected()){
-                        order = new Nuts(order);
-                    }
-                    if(sprinklesBox.isSelected()){
-                        order = new Sprinkles(order);
-                    }
-                    if(chocolateChipsBox.isSelected()){
-                        order = new ChocolateChips(order);
-                    }
-                    System.out.println(order.getDescription());
-                }
-            }
-        }
+        }while(!flavourBox.getText().isEmpty());
+        clear();
     }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
     
 }

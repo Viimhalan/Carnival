@@ -10,7 +10,7 @@ public class Sprinkles extends ToppingDecorator{
         return icecream.getDescription() + ", Sprinkles";
     }
 
-    protected int cost() {
+    public int cost() {
         return icecream.cost() + dryToppingCost;
     }
     

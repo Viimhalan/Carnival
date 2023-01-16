@@ -126,7 +126,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="iceCreamPane" layoutX="797.0" layoutY="122.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+      <Pane fx:id="iceCreamPane" layoutX="797.0" layoutY="90.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="200.0" style="-fx-background-color: transparent;">
          <children>
             <ImageView id="vaniila" fx:id="vanilla" fitHeight="100.0" fitWidth="113.0" layoutX="41.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" styleClass="vanilla" visible="false" />
             <ImageView id="cup" fx:id="cup" fitHeight="107.0" fitWidth="113.0" layoutX="44.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" styleClass="cup" visible="false" />
@@ -139,6 +139,11 @@
             <ImageView id="nuts" fx:id="nuts" fitHeight="100.0" fitWidth="113.0" layoutX="41.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" styleClass="nuts" visible="false" />
             <ImageView id="sprinkles" fx:id="sprinkles" fitHeight="100.0" fitWidth="113.0" layoutX="41.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true" styleClass="sprinkles" visible="false" />
             <ImageView id="chocolateChips" fx:id="chocolateChips" fitHeight="100.0" fitWidth="113.0" layoutX="44.0" pickOnBounds="true" preserveRatio="true" styleClass="chocolateChips" visible="false" />
+            <TextField fx:id="orderBill" layoutX="7.0" layoutY="201.0" style="-fx-background-color: white;" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
       <Pane fx:id="flavourPane" layoutX="779.0" layoutY="370.0" prefHeight="200.0" prefWidth="244.0" visible="false">
@@ -149,6 +154,11 @@
                </font>
             </Button>
             <TextField fx:id="flavourBox" layoutX="22.0" layoutY="24.0" prefHeight="31.0" prefWidth="200.0" />
+            <Text fx:id="invalidFlavour" layoutX="34.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid flavour, try again." visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Pane fx:id="containerPane" layoutX="779.0" layoutY="370.0" prefHeight="200.0" prefWidth="244.0" visible="false">
@@ -159,6 +169,11 @@
                </font>
             </Button>
             <TextField fx:id="containerBox" layoutX="22.0" layoutY="25.0" prefHeight="31.0" prefWidth="200.0" />
+            <Text fx:id="invalidContainer" layoutX="22.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid container, try again." visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Pane fx:id="saucePane" layoutX="779.0" layoutY="370.0" prefHeight="200.0" prefWidth="244.0" visible="false">
