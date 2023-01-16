@@ -10,7 +10,7 @@ public class Cup extends ContainerDecorator{
         return icecream.getDescription() + ", Cup";
     }
 
-    protected int cost() {
+    public int cost() {
         return icecream.cost() + cupCost;
     }
     

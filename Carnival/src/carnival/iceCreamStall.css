@@ -4,58 +4,45 @@
 }
 
 .vanilla{
-    -fx-background-image: url("vanilla.png");
-    -fx-background-size: cover ;
+    -fx-image: url("vanilla_scoop.png");
 }
 
 .strawberry{
-    -fx-background-image: url("strawberry.png");
-    -fx-background-size: contain ;
+    -fx-image: url("strawberry_scoop.png");
 }
 
 .chocolate{
-    -fx-background-image: url("chocolate.png");
-    -fx-background-size: cover ;
+    -fx-image:  url("chocolate_scoop.png"); 
 }
 
 .cup{
-    -fx-background-image: url("cup.png");
-    -fx-background-size: contain ;
+    -fx-image: url("cup.png");
 }
 
 .cone{
-    -fx-background-image: url("cone.png");
-    -fx-background-size: stretch ;
-}
-
-.nuts{
-    -fx-background-image: url("nuts.png");
-    -fx-background-size: contain ;
-}
-
-.sprinkles{
-    -fx-background-image: url("sprinkles.png");
-    -fx-background-size: contain ;
-}
-
-.chocolateChips{
-    -fx-background-image: url("chocolatechips.png");
-    -fx-background-size: contain ;
+    -fx-image: url("cone.png");
 }
 
 .chocolateSauce{
-    -fx-background-image: url("chocolatesauce.png");
-    -fx-background-size: contain ;
+    -fx-image: url("chocolate_sauce.png");
 }
 
-.strawberrySauce{
-    -fx-background-image: url("strawberrysauce.png");
-    -fx-background-size: contain ;
+.berrySauce{
+    -fx-image: url("strawberry_sauce.png");
 }
 
-.pistachioSauce{
-    -fx-background-image: url("pistachiosauce.png");
-    -fx-background-size: contain ;
+.nutSauce{
+    -fx-image: url("nut_sauce.png");
 }
 
+.nuts{
+    -fx-image: url("nuts.png");
+}
 
+.sprinkles{
+    -fx-image: url("sprinkles.png");
+}
+
+.chocolateChips{
+    -fx-image: url("chocolate_chips.png");
+}
