@@ -34,7 +34,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
- 
+    @FXML public Label points;
     @FXML private ImageView chocolateSauce; 
     @FXML private ImageView chocolateChips; 
     @FXML private Label orderLabel; 
@@ -98,6 +98,9 @@ public class IceCreamStallController implements Initializable {
         flavourLabel.setVisible(true);
         flavourPane.setVisible(true);
         menuPane.setVisible(true);
+
+
+
         return true;
     }
 
@@ -134,12 +137,15 @@ public class IceCreamStallController implements Initializable {
     }
     
     void order(){
+
         menuPane.setVisible(false);
         toppingLabel.setVisible(false);
         toppingPane.setVisible(false);
         orderLabel.setVisible(true);
         orderPane.setVisible(true);
         orderBill.setVisible(true);
+
+
     }
     
     void clear(){
@@ -230,6 +236,7 @@ public class IceCreamStallController implements Initializable {
     
     @FXML
     void checkout_Clicked(ActionEvent event) throws IOException {
+        Score score=Score.getInstance();
         if(nutsBox.isSelected()){
             nuts.setVisible(true);
         }
@@ -241,6 +248,13 @@ public class IceCreamStallController implements Initializable {
         }
         orderIceCream();
         order();
+       // String StringBill=orderBill.getText();
+       // String[] list=StringBill.split(" ");
+       // int bill=Integer.parseInt(list[0]);
+       // bill=score.ReduceScore(bill);
+       // points.setText("Points: " + Integer.toString(bill));
+
+
     }
     
     void orderIceCream(){
@@ -283,6 +297,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -298,6 +313,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -312,6 +328,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                         }while(!sauceBox.getText().isEmpty());
@@ -334,6 +351,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("berry")){
@@ -349,6 +367,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -364,6 +383,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -378,6 +398,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                         }while(!sauceBox.getText().isEmpty());
@@ -406,6 +427,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("berry")){
@@ -421,6 +443,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -436,6 +459,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -450,6 +474,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                         }while(!sauceBox.getText().isEmpty());
@@ -471,7 +496,7 @@ public class IceCreamStallController implements Initializable {
                                     order = new ChocolateChips(order);
                                 }
                                 System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("berry")){
@@ -487,6 +512,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -502,6 +528,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -516,6 +543,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                         }while(!sauceBox.getText().isEmpty());
@@ -544,6 +572,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("berry")){
@@ -559,6 +588,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -574,6 +604,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -588,6 +619,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                         }while(!sauceBox.getText().isEmpty());
@@ -610,6 +642,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("berry")){
@@ -625,6 +658,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
@@ -640,6 +674,7 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
                             else {
@@ -654,14 +689,18 @@ public class IceCreamStallController implements Initializable {
                                 }
                                 System.out.println(order.getDescription());
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
+
                                 clear();
                             }
+
                         }while(!sauceBox.getText().isEmpty());
                     }
                 }while(!containerBox.getText().isEmpty());
             }
+
         }while(!flavourBox.getText().isEmpty());
         clear();
+
     }
     
     

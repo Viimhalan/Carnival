@@ -1,0 +1,48 @@
+#AnchorPane{
+    -fx-background-image: url("iceCreamStall-counter.png");
+    -fx-background-size: cover;
+}
+
+.vanilla{
+    -fx-image: url("vanilla_scoop.png");
+}
+
+.strawberry{
+    -fx-image: url("strawberry_scoop.png");
+}
+
+.chocolate{
+    -fx-image:  url("chocolate_scoop.png"); 
+}
+
+.cup{
+    -fx-image: url("cup.png");
+}
+
+.cone{
+    -fx-image: url("cone.png");
+}
+
+.chocolateSauce{
+    -fx-image: url("chocolate_sauce.png");
+}
+
+.berrySauce{
+    -fx-image: url("strawberry_sauce.png");
+}
+
+.nutSauce{
+    -fx-image: url("nut_sauce.png");
+}
+
+.nuts{
+    -fx-image: url("nuts.png");
+}
+
+.sprinkles{
+    -fx-image: url("sprinkles.png");
+}
+
+.chocolateChips{
+    -fx-image: url("chocolate_chips.png");
+}
