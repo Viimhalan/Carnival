@@ -1,7 +1,8 @@
 package carnival.IceCreamStall;
 
+import carnival.Score;
+
 public class ChocolateSauce extends ToppingDecorator{
-    
     public ChocolateSauce(IceCream icecream) {
         this.icecream = icecream;
     }
@@ -13,5 +14,5 @@ public class ChocolateSauce extends ToppingDecorator{
     public int cost() {
         return icecream.cost() + dryToppingCost;
     }
-    
+
 }

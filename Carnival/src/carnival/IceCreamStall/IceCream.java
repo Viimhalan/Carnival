@@ -8,5 +8,5 @@ public abstract class IceCream {
     public String getDescription() {
         return description;
     }
-    
+
 }
