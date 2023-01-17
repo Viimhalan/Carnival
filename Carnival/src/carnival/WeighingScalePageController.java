@@ -119,6 +119,7 @@ public class WeighingScalePageController implements Initializable {
             Random randomAge = new Random();
             int age = randomAge.nextInt(100-50)+50;
             ageLabel.setText(" "+ String.valueOf(age)+" kg");
+            nextButton.setVisible(true);
         }
         
         welcomeMsg.setVisible(false);
