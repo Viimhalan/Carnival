@@ -10,7 +10,7 @@ public class StrawberrySauce extends ToppingDecorator{
         return icecream.getDescription() + ", Strawberry Sauce";
     }
 
-    public int cost() {
+    protected int cost() {
         return icecream.cost() + dryToppingCost;
     }
     
