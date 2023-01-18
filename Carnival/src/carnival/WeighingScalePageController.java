@@ -1,16 +1,11 @@
 package carnival;
 
-import carnival.fortuneWeighingScale.DisplayWeightState;
 import carnival.fortuneWeighingScale.FortuneWeighingScale;
 import carnival.fortuneWeighingScale.NoPennyState;
 import carnival.fortuneWeighingScale.HasPennyState;
-import carnival.fortuneWeighingScale.LuckyState;
-import carnival.fortuneWeighingScale.MessageDroppedState;
-import carnival.fortuneWeighingScale.MessageFinishedState;
 import carnival.fortuneWeighingScale.State;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,10 +41,7 @@ public class WeighingScalePageController implements Initializable {
     public Button turnCrank_Clicked;
     
     @FXML
-    public Label msg;
-    
-    @FXML
-    public Label ageLabel;
+    public Label hasInsert;
     
     @FXML
     public Label welcomeMsg;
@@ -72,70 +64,36 @@ public class WeighingScalePageController implements Initializable {
     
     @FXML
     public void scaleBtn_Clicked(ActionEvent event) throws IOException{
-        if(welcomeMsg.isVisible()){
-            welcomeMsg.setVisible(false);
-            startMsg.setVisible(true);
-        }
-        else if(startMsg.isVisible()){
-            startMsg.setVisible(false);
-            welcomeMsg.setVisible(true);
-        }
-        
+        startMsg.setVisible(true);
+        welcomeMsg.setVisible(false);
     }
     
     FortuneWeighingScale fortuneWeighingScale = new FortuneWeighingScale(5);
     
     @FXML
     public void insertPenny_Clicked(ActionEvent event) throws IOException{
-//        fortuneWeighingScale.insertPenny(); 
-        
-        welcomeMsg.setVisible(false);
-        startMsg.setVisible(false);
-        msg.setText(fortuneWeighingScale.insertPenny());
-        msg.setVisible(true);
+        State currentState = fortuneWeighingScale.getState();
+        System.out.println(currentState);
+        fortuneWeighingScale.insertPenny();
+        if(fortuneWeighingScale.getState().equals("")){
+            System.out.println("");
+            hasInsert.setVisible(true);
+        }
     }
     
     @FXML
     public void ejectPenny_Clicked(ActionEvent event) throws IOException{
-//        fortuneWeighingScale.ejectPenny();
-        
-        welcomeMsg.setVisible(false);
-        startMsg.setVisible(false);
-        msg.setText(fortuneWeighingScale.ejectPenny());
-        msg.setVisible(true);
+        fortuneWeighingScale.ejectPenny();
     }
     
     @FXML
     public void pressButton_Clicked(ActionEvent event) throws IOException{
-//        fortuneWeighingScale.pressButton();
-
-        State currentState = fortuneWeighingScale.getState();
-        String crntState = currentState.toString();
-        
-        HasPennyState hasPenny = new HasPennyState(fortuneWeighingScale);
-        String hasPennyState = hasPenny.toString();
-         
-        if(crntState.equals(hasPennyState)){
-            Random randomAge = new Random();
-            int age = randomAge.nextInt(100-50)+50;
-            ageLabel.setText(" "+ String.valueOf(age)+" kg");
-            nextButton.setVisible(true);
-        }
-        
-        welcomeMsg.setVisible(false);
-        startMsg.setVisible(false);
-        msg.setText(fortuneWeighingScale.pressButton());
-        msg.setVisible(true);
+        fortuneWeighingScale.pressButton();
     }
     
     @FXML
     public void turnCrank_Clicked(ActionEvent event) throws IOException{
-//        fortuneWeighingScale.turnCrank();
-        
-        welcomeMsg.setVisible(false);
-        startMsg.setVisible(false);
-        msg.setText(fortuneWeighingScale.turnCrank());
-        msg.setVisible(true);
+        fortuneWeighingScale.turnCrank();
     }
     
     @Override
