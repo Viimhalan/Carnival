@@ -73,6 +73,7 @@ public class IceCreamStallController implements Initializable {
     @FXML private Text invalidFlavour;
     @FXML private Text invalidContainer;
     @FXML private Text invalidSauce;
+ 
     private Stage stage;
     private Scene scene;
     private Parent root;
