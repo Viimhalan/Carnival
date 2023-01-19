@@ -43,8 +43,7 @@ public class WelcomePageController implements Initializable {
         Media media = new Media(video.toExternalForm());
         MediaPlayer mediaplayer = new MediaPlayer(media);
         mv.setMediaPlayer(mediaplayer);
-        mediaplayer.setAutoPlay(true);
-        
+        mediaplayer.setAutoPlay(true);    
     }    
     
 }

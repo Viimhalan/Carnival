@@ -18,6 +18,7 @@ public class MainPageController implements Initializable {
 
     @FXML
     private Button iceCreamStall;
+    private Button teaterBooth;
     @FXML
     private Pane pointsPane;
     private Stage stage;
@@ -27,6 +28,14 @@ public class MainPageController implements Initializable {
     @FXML
     public void iceCreamStall_Clicked(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("IceCreamStall.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    public void theaterBooth_Clicked(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Theater.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
