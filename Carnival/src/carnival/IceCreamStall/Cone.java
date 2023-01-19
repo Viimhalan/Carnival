@@ -10,7 +10,7 @@ public class Cone extends ContainerDecorator{
         return icecream.getDescription() + ", Cone";
     }
 
-    public int cost() {
+    protected int cost() {
         return icecream.cost() + coneCost;
     }
     

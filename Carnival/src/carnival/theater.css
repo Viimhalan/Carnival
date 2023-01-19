@@ -1,0 +1,35 @@
+#AnchorPane{
+    -fx-background-image: url("teaterbooth.png");
+    -fx-background-size: cover;
+}
+
+.exit{
+    -fx-background-image: url("exit.png");
+    -fx-background-size: cover;
+    -fx-transform: scaleX(-1);
+}
+
+.royale{
+    -fx-background-image: url("royalepopcorn.png");
+    -fx-background-size: cover;
+}
+
+.caramel{
+    -fx-background-image: url("caramelpopcorn.png");
+    -fx-background-size: cover;
+}
+
+.fries{
+    -fx-background-image: url("fries.png");
+    -fx-background-size: cover;
+}
+
+.nuggets{
+    -fx-background-image: url("nuggets.png");
+    -fx-background-size: cover;
+}
+
+.frame{
+    -fx-background-image: url("carnivalFrame.png");
+    -fx-background-size: cover;
+}
