@@ -30,6 +30,11 @@
 }
 
 .frame{
-    -fx-background-image: url("carnivalFrame.png");
+    -fx-background-image: url("people.png");
+    -fx-background-size: cover;
+}
+
+.seat{
+    -fx-background-image: url("seat.png");
     -fx-background-size: cover;
 }
