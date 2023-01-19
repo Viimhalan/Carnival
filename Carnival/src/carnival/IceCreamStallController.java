@@ -150,9 +150,6 @@ public class IceCreamStallController implements Initializable {
         nutsBox.setSelected(false);
         sprinklesBox.setSelected(false);
         chocolateChipsBox.setSelected(false);
-        invalidSauce.setVisible(false);
-        invalidFlavour.setVisible(false);
-        invalidContainer.setVisible(false);
     }
     
     
