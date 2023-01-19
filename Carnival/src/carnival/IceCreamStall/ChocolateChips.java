@@ -10,7 +10,7 @@ public class ChocolateChips extends ToppingDecorator{
         return icecream.getDescription() + ", Chocolate Chips";
     }
 
-    protected int cost() {
+    public int cost() {
         return icecream.cost() + dryToppingCost;
     }
   
