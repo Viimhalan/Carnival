@@ -30,75 +30,44 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
- 
-    @FXML
-    private Label flavourLabel;
-
-    @FXML
-    private Button no;
-
-    @FXML
-    private Button chocolateSauce;
-
-    @FXML
-    private Pane flavourPane;
-
-    @FXML
-    private Button yes;
-
-    @FXML
-    private Button chocolateChips;
-
-    @FXML
-    private Label orderLabel;
-
-    @FXML
-    private Button strawberry;
-
-    @FXML
-    private Button cone;
-
-    @FXML
-    private Label toppingLabel;
-
-    @FXML
-    private Pane toppingPane;
-
-    @FXML
-    private Button berrySauce;
-
-    @FXML
-    private Pane orderPane;
-
-    @FXML
-    private Pane containerPane;
-
-    @FXML
-    private TextArea orderBill;
-
-    @FXML
-    private Button nuts;
-
-    @FXML
-    private Button nutSauce;
-
-    @FXML
-    private Label containerLabel;
-
-    @FXML
-    private Button sprinkles;
-
-    @FXML
-    private Button checkout;
-
-    @FXML
-    private Button vanilla;
-
-    @FXML
-    private Button chocolate;
-
-    @FXML
-    private Button cup;
+    @FXML private ImageView chocolateSauce; 
+    @FXML private ImageView chocolateChips; 
+    @FXML private Label orderLabel; 
+    @FXML private Label toppingLabel;
+    @FXML private Pane menuPane; 
+    @FXML private CheckBox nutsBox;  
+    @FXML private CheckBox sprinklesBox;  
+    @FXML private CheckBox chocolateChipsBox; 
+    @FXML private ImageView cone; 
+    @FXML private TextField orderBill; 
+    @FXML private ImageView nutSauce; 
+    @FXML private Label containerLabel; 
+    @FXML private ImageView sprinkles; 
+    @FXML private Button nextFlavour; 
+    @FXML private Button nextContainer; 
+    @FXML private Button nextSauce;
+    @FXML private TextField flavourBox;
+    @FXML private TextField containerBox;
+    @FXML private TextField sauceBox;
+    @FXML private Button checkout;
+    @FXML private Button yes; 
+    @FXML private ImageView vanilla; 
+    @FXML private Label flavourLabel;
+    @FXML private ImageView strawberry;
+    @FXML private Pane flavourPane; 
+    @FXML private Pane containerPane; 
+    @FXML private Pane saucePane; 
+    @FXML private Pane toppingPane; 
+    @FXML private ImageView berrySauce; 
+    @FXML private Pane orderPane; 
+    @FXML private ImageView nuts; 
+    @FXML private Label sauceLabel; 
+    @FXML private ImageView cup; 
+    @FXML private ImageView chocolate;
+    @FXML private Pane iceCreamPane;
+    @FXML private Text invalidFlavour;
+    @FXML private Text invalidContainer;
+    @FXML private Text invalidSauce;
     private Stage stage;
     private Scene scene;
     private Parent root;
