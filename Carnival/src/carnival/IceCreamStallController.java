@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,83 +24,24 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
  
-    @FXML private ImageView chocolateSauce; 
-    @FXML private ImageView chocolateChips; 
-    @FXML private Label orderLabel; 
-    @FXML private Label toppingLabel;
-    @FXML private Pane menuPane; 
-    @FXML private CheckBox nutsBox;  
-    @FXML private CheckBox sprinklesBox;  
-    @FXML private CheckBox chocolateChipsBox; 
-    @FXML private ImageView cone; 
-    @FXML private TextField orderBill; 
-    @FXML private ImageView nutSauce; 
-    @FXML private Label containerLabel; 
-    @FXML private ImageView sprinkles; 
-    @FXML private Button nextFlavour; 
-    @FXML private Button nextContainer; 
-    @FXML private Button nextSauce;
-    @FXML private TextField flavourBox;
-    @FXML private TextField containerBox;
-    @FXML private TextField sauceBox;
-    @FXML private Button checkout;
-    @FXML private Button yes; 
-    @FXML private ImageView vanilla; 
-    @FXML private Label flavourLabel;
-    @FXML private ImageView strawberry;
-    @FXML private Pane flavourPane; 
-    @FXML private Pane containerPane; 
-    @FXML private Pane saucePane; 
-    @FXML private Pane toppingPane; 
-    @FXML private ImageView berrySauce; 
-    @FXML private Pane orderPane; 
-    @FXML private ImageView nuts; 
-    @FXML private Label sauceLabel; 
-    @FXML private ImageView cup; 
-    @FXML private ImageView chocolate;
-    @FXML private Pane iceCreamPane;
-    @FXML private Text invalidFlavour;
-    @FXML private Text invalidContainer;
-    @FXML private Text invalidSauce;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
     
-    
     @FXML
-    boolean yes_Clicked(ActionEvent event) {
-        clear();
-        vanilla.setVisible(false);
-        cone.setVisible(false);
-        strawberry.setVisible(false);
-        chocolate.setVisible(false);
-        chocolateSauce.setVisible(false);
-        nutSauce.setVisible(false);
-        berrySauce.setVisible(false);
-        nuts.setVisible(false);
-        sprinkles.setVisible(false);
-        chocolateChips.setVisible(false);
-        cup.setVisible(false);
-        orderBill.setVisible(false);
-        orderBill.clear();
+    void yes_Clicked(ActionEvent event) {
         orderLabel.setVisible(false);
         orderPane.setVisible(false);
         flavourLabel.setVisible(true);
         flavourPane.setVisible(true);
-        menuPane.setVisible(true);
-        return true;
     }
 
     @FXML
@@ -110,487 +52,115 @@ public class IceCreamStallController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
-    void container(){
+
+    @FXML
+    void vanilla_Clicked(ActionEvent event) {
         flavourLabel.setVisible(false);
         flavourPane.setVisible(false);
         containerLabel.setVisible(true);
         containerPane.setVisible(true);
-        invalidFlavour.setVisible(false);
+        orderVanilla();
+    } 
+
+    @FXML
+    void strawberry_Clicked(ActionEvent event) {
+        flavourLabel.setVisible(false);
+        flavourPane.setVisible(false);
+        containerLabel.setVisible(true);
+        containerPane.setVisible(true);
+        orderStrawberry();
     }
-    
-    void sauce(){
+
+    @FXML
+    void chocolate_Clicked(ActionEvent event) {
+        IceCream order = new Chocolate();
+        flavourLabel.setVisible(false);
+        flavourPane.setVisible(false);
+        containerLabel.setVisible(true);
+        containerPane.setVisible(true);
+        orderChocolate();
+    }
+
+    @FXML
+    void cup_Clicked(ActionEvent event) {
         containerLabel.setVisible(false);
         containerPane.setVisible(false);
-        sauceLabel.setVisible(true);
-        saucePane.setVisible(true);
-        invalidContainer.setVisible(false);
+        toppingLabel.setVisible(true);
+        toppingPane.setVisible(true);;
     }
-    
-    void topping(){
-        sauceLabel.setVisible(false);
-        saucePane.setVisible(false);
+
+    @FXML
+    void cone_Clicked(ActionEvent event) {
+        containerLabel.setVisible(false);
+        containerPane.setVisible(false);
         toppingLabel.setVisible(true);
         toppingPane.setVisible(true);
+        if(vanilla.isArmed()){
+            orderVanilla();
+        }
+        else if(strawberry.isArmed()){
+            orderStrawberry();
+        }
+        else if(chocolate.isArmed()){
+            orderChocolate();    
+        }
     }
-    
-    void order(){
-        menuPane.setVisible(false);
-        toppingLabel.setVisible(false);
-        toppingPane.setVisible(false);
-        orderLabel.setVisible(true);
-        orderPane.setVisible(true);
-        orderBill.setVisible(true);
+
     }
-    
-    void clear(){
-        flavourBox.clear();
-        containerBox.clear();
-        sauceBox.clear();
-        nutsBox.setSelected(false);
-        sprinklesBox.setSelected(false);
-        chocolateChipsBox.setSelected(false);
-        invalidSauce.setVisible(false);
-        invalidFlavour.setVisible(false);
-        invalidContainer.setVisible(false);
-    }
-    
-    
+
     @FXML
-    void nextFlavour_Clicked(ActionEvent event) throws IOException {
-        if(flavourBox.getText().equalsIgnoreCase("vanilla")){
-            container();
+    void sprinkles_Clicked(ActionEvent event) {
+        if(vanilla.isArmed()){
+            orderVanilla();
         }
-        else if(flavourBox.getText().equalsIgnoreCase("strawberry")){
-            container();
+        else if(strawberry.isArmed()){
+            orderStrawberry();
         }
-        else if(flavourBox.getText().equalsIgnoreCase("chocolate")){
-            container();
-        }
-        else{
-            invalidFlavour.setVisible(true);
+        else if(chocolate.isArmed()){
+            orderChocolate();    
         }
     }
-    
+
     @FXML
-    void nextContainer_Clicked(ActionEvent event) throws IOException {
-        if(flavourBox.getText().equalsIgnoreCase("vanilla")){
-            vanilla.setVisible(true);
-            if(containerBox.getText().equalsIgnoreCase("cup")){
-                cup.setVisible(true);
-                sauce();
-            }
-            else if(containerBox.getText().equalsIgnoreCase("cone")){
-                cone.setVisible(true);
-                sauce();
-            }
-            else{
-                invalidContainer.setVisible(true);
-            }
+    void chocolateChips_Clicked(ActionEvent event) {
+        if(vanilla.isArmed()){
+            orderVanilla();
         }
-        else if(flavourBox.getText().equalsIgnoreCase("strawberry")){
-            strawberry.setVisible(true);
-            if(containerBox.getText().equalsIgnoreCase("cup")){
-                cup.setVisible(true);
-                sauce();
-            }
-            else if(containerBox.getText().equalsIgnoreCase("cone")){
-                cone.setVisible(true);
-                sauce();
-            }
-            else{
-                invalidContainer.setVisible(true);
-            }
+        else if(strawberry.isArmed()){
+            orderStrawberry();
         }
-        else if(flavourBox.getText().equalsIgnoreCase("chocolate")){
-            chocolate.setVisible(true);
-            if(containerBox.getText().equalsIgnoreCase("cup")){
-                cup.setVisible(true);
-                sauce();
-            }
-            else if(containerBox.getText().equalsIgnoreCase("cone")){
-                cone.setVisible(true);
-                sauce();
-            }
-            else{
-                invalidContainer.setVisible(true);
-            }
+        else if(chocolate.isArmed()){
+            orderChocolate();    
         }
     }
-    
+
     @FXML
-    void nextSauce_Clicked(ActionEvent event) throws IOException {
-        if(sauceBox.getText().equalsIgnoreCase("chocolate")){
-            chocolateSauce.setVisible(true);
-            topping();
+    void chocolateSauce_Clicked(ActionEvent event) {
+        if(vanilla.isArmed()){
+            orderVanilla();
         }
-        else if(sauceBox.getText().equalsIgnoreCase("berry")){
-            berrySauce.setVisible(true);
-            topping();
+        else if(strawberry.isArmed()){
+            orderStrawberry();
         }
-        else if(sauceBox.getText().equalsIgnoreCase("nut")){
-            nutSauce.setVisible(true);
-            topping();
-        }else {
-            invalidSauce.setVisible(true);
+        else if(chocolate.isArmed()){
+            orderChocolate();    
         }
     }
-    
+
+
+        }
+    }
+
     @FXML
-    void checkout_Clicked(ActionEvent event) throws IOException {
-        if(nutsBox.isSelected()){
-            nuts.setVisible(true);
+    void nutSauce_Clicked(ActionEvent event) {
+        if(vanilla.isArmed()){
+            orderVanilla();
         }
-        if(sprinklesBox.isSelected()){
-            sprinkles.setVisible(true);
+        else if(strawberry.isArmed()){
+            orderStrawberry();
         }
-        if(chocolateChipsBox.isSelected()){
-            chocolateChips.setVisible(true);
+        else if(chocolate.isArmed()){
+            orderChocolate();    
         }
-        orderIceCream();
-        order();
     }
     
-    void orderIceCream(){
-        do{
-            String flavour = flavourBox.getText();
-            if(flavour.equalsIgnoreCase("vanilla")){
-                IceCream order = new Vanilla();
-                do{
-                    String container = containerBox.getText();  
-                    if(container.equalsIgnoreCase("cup")){
-                        order = new Cup(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                    else if(container.equalsIgnoreCase("cone")){
-                        order = new Cone(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                }while(!containerBox.getText().isEmpty());
-            }
-            else if(flavour.equalsIgnoreCase("strawberry")){
-                IceCream order = new Strawberry();
-                do{
-                    String container = containerBox.getText();
-                    if(container.equalsIgnoreCase("cup")){
-                        order = new Cup(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                    else if(container.equalsIgnoreCase("cone")){
-                        order = new Cone(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                }while(!containerBox.getText().isEmpty());
-            }
-            else if(flavour.equalsIgnoreCase("chocolate")){
-                IceCream order = new Chocolate();
-                do{
-                    String container = containerBox.getText();
-                    if(container.equalsIgnoreCase("cup")){
-                        order = new Cup(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                    else if(container.equalsIgnoreCase("cone")){
-                        order = new Cone(order);
-                        do{
-                            String sauce = sauceBox.getText();
-                            sauceBox.clear();
-                            if(sauce.equalsIgnoreCase("chocolate")){
-                                order = new ChocolateSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("berry")){
-                                order = new StrawberrySauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else if(sauce.equalsIgnoreCase("nut")){
-                                order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                        }while(!sauceBox.getText().isEmpty());
-                    }
-                }while(!containerBox.getText().isEmpty());
-            }
-        }while(!flavourBox.getText().isEmpty());
-        clear();
-    }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }    
-    
-}
