@@ -184,6 +184,11 @@
                </font>
             </Button>
             <TextField fx:id="sauceBox" layoutX="22.0" layoutY="25.0" prefHeight="31.0" prefWidth="200.0" />
+            <Text fx:id="invalidSauce" layoutX="35.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid sauce, try again." visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Pane fx:id="toppingPane" layoutX="797.0" layoutY="374.0" prefHeight="191.0" prefWidth="200.0" visible="false">

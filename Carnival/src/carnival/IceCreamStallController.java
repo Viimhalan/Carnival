@@ -72,6 +72,7 @@ public class IceCreamStallController implements Initializable {
     @FXML private Pane iceCreamPane;
     @FXML private Text invalidFlavour;
     @FXML private Text invalidContainer;
+    @FXML private Text invalidSauce;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -149,6 +150,9 @@ public class IceCreamStallController implements Initializable {
         nutsBox.setSelected(false);
         sprinklesBox.setSelected(false);
         chocolateChipsBox.setSelected(false);
+        invalidSauce.setVisible(false);
+        invalidFlavour.setVisible(false);
+        invalidContainer.setVisible(false);
     }
     
     
@@ -218,14 +222,18 @@ public class IceCreamStallController implements Initializable {
     void nextSauce_Clicked(ActionEvent event) throws IOException {
         if(sauceBox.getText().equalsIgnoreCase("chocolate")){
             chocolateSauce.setVisible(true);
+            topping();
         }
         else if(sauceBox.getText().equalsIgnoreCase("berry")){
             berrySauce.setVisible(true);
+            topping();
         }
         else if(sauceBox.getText().equalsIgnoreCase("nut")){
             nutSauce.setVisible(true);
+            topping();
+        }else {
+            invalidSauce.setVisible(true);
         }
-        topping();
     }
     
     @FXML
@@ -300,20 +308,6 @@ public class IceCreamStallController implements Initializable {
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
                                 clear();
                             }
-                            else {
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
                         }while(!sauceBox.getText().isEmpty());
                     }
                     else if(container.equalsIgnoreCase("cone")){
@@ -353,20 +347,6 @@ public class IceCreamStallController implements Initializable {
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
                                 order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else {
                                 if(nutsBox.isSelected()){
                                     order = new Nuts(order);
                                 }
@@ -438,20 +418,6 @@ public class IceCreamStallController implements Initializable {
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
                                 clear();
                             }
-                            else {
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
                         }while(!sauceBox.getText().isEmpty());
                     }
                     else if(container.equalsIgnoreCase("cone")){
@@ -491,20 +457,6 @@ public class IceCreamStallController implements Initializable {
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
                                 order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else {
                                 if(nutsBox.isSelected()){
                                     order = new Nuts(order);
                                 }
@@ -576,20 +528,6 @@ public class IceCreamStallController implements Initializable {
                                 orderBill.setText(Integer.toString(order.cost()) + " Points");
                                 clear();
                             }
-                            else {
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
                         }while(!sauceBox.getText().isEmpty());
                     }
                     else if(container.equalsIgnoreCase("cone")){
@@ -629,20 +567,6 @@ public class IceCreamStallController implements Initializable {
                             }
                             else if(sauce.equalsIgnoreCase("nut")){
                                 order = new NutSauce(order);
-                                if(nutsBox.isSelected()){
-                                    order = new Nuts(order);
-                                }
-                                if(sprinklesBox.isSelected()){
-                                    order = new Sprinkles(order);
-                                }
-                                if(chocolateChipsBox.isSelected()){
-                                    order = new ChocolateChips(order);
-                                }
-                                System.out.println(order.getDescription());
-                                orderBill.setText(Integer.toString(order.cost()) + " Points");
-                                clear();
-                            }
-                            else {
                                 if(nutsBox.isSelected()){
                                     order = new Nuts(order);
                                 }
