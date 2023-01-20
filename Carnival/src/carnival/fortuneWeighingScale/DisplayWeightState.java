@@ -15,25 +15,35 @@ public class DisplayWeightState implements State{
         this.fortuneWeighingScale = fortuneWeighingScale;
     }
     
-    public void insertPenny(){
-        System.out.println("You have already inserted a penny");
+    public String insertPenny(){
+        String disInsert = "You have already inserted a penny";
+        System.out.println(disInsert);
+        return disInsert;
     }
     
-    public void ejectPenny(){
-        System.out.println("Too late to eject the penny. ");
+    public String ejectPenny(){
+        String disEject = "Too late to eject the penny. ";
+        System.out.println(disEject);
+        return disEject;
     }
     
-    public void pressButton(){
-        System.out.println("Weight is being displayed");
+    public String pressButton(){
+        String disPressBtn = "Weight is being displayed";
+        System.out.println(disPressBtn);
+        return disPressBtn;
     }
     
-    public void turnCrank(){
-        System.out.println("You turned");
+    public String turnCrank(){
+        String disCrank = "You turned";
+        System.out.println(disCrank);
         fortuneWeighingScale.setState(fortuneWeighingScale.getMessageDroppedState());
+        return disCrank;
     }
     
-    public void dispenseMsg(){
-        System.out.println("Getting you the fortune message");
+    public String dispenseMsg(){
+        String disDispense = "Getting you the fortune message";
+        System.out.println(disDispense);
+        return disDispense;
     }
     
     public String toString() {
