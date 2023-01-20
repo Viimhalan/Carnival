@@ -1,5 +1,6 @@
 package carnival;
-
+import javafx.scene.control.Label;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MainPageController implements Initializable {
-
+    @FXML private Label score;
     @FXML
     private Button iceCreamStall;
     private Button teaterBooth;
@@ -24,6 +25,7 @@ public class MainPageController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
     
     @FXML
     public void iceCreamStall_Clicked(ActionEvent event) throws IOException{
@@ -44,6 +46,8 @@ public class MainPageController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
     }    
     
 }

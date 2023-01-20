@@ -6,9 +6,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.TheaterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.TheaterController">
    <children>
-      <Pane id="AnchorPane" prefHeight="594.0" prefWidth="653.0" stylesheets="@theater.css" />
+      <Pane id="AnchorPane" prefHeight="594.0" prefWidth="653.0" stylesheets="@theater.css">
+         <children>
+            <Pane id="ScorePane" layoutX="227.0" layoutY="423.0" prefHeight="144.0" prefWidth="231.0">
+               <children>
+                  <Label fx:id="score" layoutX="57.0" layoutY="49.0" prefHeight="71.0" prefWidth="118.0" text="SCORE: " style="-fx-background-color: #FFFFFF;" />
+               </children></Pane>
+         </children></Pane>
       <Pane layoutX="643.0" layoutY="-34.0" prefHeight="361.0" prefWidth="418.0" style="-fx-background-color: #fff7f2;" styleClass="frame" stylesheets="@theater.css">
          <children>
             <Label fx:id="welcome" alignment="CENTER" contentDisplay="TOP" layoutX="54.0" layoutY="190.0" prefHeight="98.0" prefWidth="317.0" style="-fx-background-color: white;" styleClass="words" stylesheets="@theater.css" text="WELCOME TO CARNIVAL THEATER!!!" textAlignment="CENTER" textFill="#8c4848" wrapText="true">

@@ -12,6 +12,7 @@ import carnival.IceCreamStall.Sprinkles;
 import carnival.IceCreamStall.Strawberry;
 import carnival.IceCreamStall.StrawberrySauce;
 import carnival.IceCreamStall.Vanilla;
+import carnival.Scoreboard;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +33,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class IceCreamStallController implements Initializable {
- 
+    @FXML private Label score;
     @FXML private ImageView chocolateSauce; 
     @FXML private ImageView chocolateChips; 
     @FXML private Label orderLabel; 
@@ -247,6 +248,14 @@ public class IceCreamStallController implements Initializable {
         }
         orderIceCream();
         order();
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        String bill=orderBill.getText();
+        String[] billArray=bill.split(" ");
+        int sc=Integer.parseInt(billArray[0]);
+        scoreboard.deductScore(sc);
+        score.setText("Points: "+ scoreboard.getScore());
+
+
     }
     
     void orderIceCream(){
@@ -589,6 +598,8 @@ public class IceCreamStallController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }    
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
+    }
     
 }

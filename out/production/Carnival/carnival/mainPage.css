@@ -1,0 +1,32 @@
+#AnchorPane{
+    -fx-background-image: url("1208.jpg");
+    -fx-background-size: cover;
+}
+
+.iceCreamStall-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("iceCreamStall.png");
+    -fx-background-size: cover;
+}
+
+.teaterBooth-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("TheaterBooth.png");
+    -fx-background-size: cover;
+}
+
+.people-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("people.png");
+    -fx-background-size: cover;
+}
+
+.popcorn-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("popcorn.png");
+    -fx-background-size: cover;
+}

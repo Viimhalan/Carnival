@@ -14,13 +14,13 @@
       <Button blendMode="OVERLAY" layoutX="37.0" layoutY="519.0" mnemonicParsing="false" onAction="#theaterBooth_Clicked" prefHeight="80.0" prefWidth="52.0" styleClass="popcorn-button" stylesheets="@mainPage.css" />
       <Button id="iceCreamStall" fx:id="iceCreamStall1" alignment="CENTER" layoutX="1120.0" layoutY="374.0" mnemonicParsing="false" onAction="#iceCreamStall_Clicked" prefHeight="312.0" prefWidth="276.0" styleClass="iceCreamStall-button" stylesheets="@mainPage.css" textAlignment="CENTER" />
       <Pane fx:id="pointsPane" layoutX="1117.0" prefHeight="111.0" prefWidth="283.0" style="-fx-background-color: white;">
-         <children>
-            <Label layoutX="37.0" layoutY="38.0" text="POINTS:">
+
+            <Label layoutX="37.0" layoutY="38.0" text="POINTS:" fx:id="score">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Label>
-         </children>
+
       </Pane>
    </children>
 </AnchorPane>

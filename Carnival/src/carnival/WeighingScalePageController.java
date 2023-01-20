@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 
 public class WeighingScalePageController implements Initializable {
 
-    
+    @FXML private Label pointsLabel;
     @FXML
     private Button nextButton;
     
@@ -120,12 +120,17 @@ public class WeighingScalePageController implements Initializable {
             int age = randomAge.nextInt(100-50)+50;
             ageLabel.setText(" "+ String.valueOf(age)+" kg");
             nextButton.setVisible(true);
+            Scoreboard scoreboard=Scoreboard.getInstance();
+
+            scoreboard.setScore(age);
+            pointsLabel.setText(String.valueOf(scoreboard.getScore()));
         }
         
         welcomeMsg.setVisible(false);
         startMsg.setVisible(false);
         msg.setText(fortuneWeighingScale.pressButton());
         msg.setVisible(true);
+
     }
     
     @FXML
