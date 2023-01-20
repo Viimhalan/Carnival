@@ -15,20 +15,28 @@ public class MessageFinishedState implements State{
         this.fortuneWeighingScale = fortuneWeighingScale;
     }
     
-    public void insertPenny(){
-        System.out.println("You can't insert a penny, the machine is sold out");
+    public String insertPenny(){
+        String finInsert = "You can't insert a penny, the machine is sold out";
+        System.out.println(finInsert);
+        return finInsert;
     }
     
-    public void ejectPenny(){
-        System.out.println("You can't eject, you haven't inserted a penny yet");
+    public String ejectPenny(){
+        String finEject = "You can't eject, you haven't inserted a penny yet";
+        System.out.println(finEject);
+        return finEject;
     }
     
-    public void pressButton(){
-        System.out.println("No weight displayed");
+    public String pressButton(){
+        String finPressBtn = "No weight displayed";
+        System.out.println(finPressBtn);
+        return finPressBtn;
     }
     
-    public void turnCrank(){
-        System.out.println("You turned, but there are no fortune messages left");
+    public String turnCrank(){
+        String finCrank = "You turned, but there are no fortune messages left";
+        System.out.println(finCrank);
+        return finCrank;
     }
     
     public void refill(){
@@ -39,7 +47,9 @@ public class MessageFinishedState implements State{
         return "sold out";
     }
     
-    public void dispenseMsg(){
-        System.out.println("No fortune message dispensed.");
+    public String dispenseMsg(){
+        String finDispense = "So, no fortune message dispensed.";
+        System.out.println(finDispense);
+        return finDispense;
     }
 }

@@ -11,169 +11,19 @@
       <Pane id="scaleMachine" layoutX="266.0" layoutY="39.0" prefHeight="494.0" prefWidth="125.0" stylesheets="@weighingScalePage.css">
          <children>
             <Button id="scaleBtn" fx:id="scaleBtn" mnemonicParsing="false" onAction="#scaleBtn_Clicked" prefHeight="501.0" prefWidth="131.0" stylesheets="@weighingScalePage.css" text="Button" />
-            <Pane layoutX="26.0" layoutY="3.0" prefHeight="78.0" prefWidth="83.0" style="-fx-background-color: #efefef;">
+            <Pane layoutX="25.0" layoutY="3.0" prefHeight="78.0" prefWidth="84.0" style="-fx-background-color: #efefef;">
                <children>
-                  <Label fx:id="welcomeMsg" layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Welcome to the Carnival! Know your fortune with our Fortune Weighing Scale" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Label fx:id="welcomeMsg" layoutX="-11.0" layoutY="-3.0" prefHeight="90.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="Welcome to the Carnival! Know your fortune with our Fortune Weighing Scale" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label fx:id="startMsg" layoutX="-4.0" layoutY="-6.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Start by inserting a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+                  <Label fx:id="startMsg" layoutX="-11.0" layoutY="-6.0" prefHeight="90.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="Start by inserting a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Label fx:id="hasInsert" layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You can't insert another penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text=" Penny returned" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You pressed to check your weight...calculating your weight" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="   You turned..." textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="No fortune message dispensed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You inserted a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You haven't inserted a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="No Weight displayed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You turned, but there's no penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You need to pay first" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Please wait, we're already giving you a fortune message" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Sorry, you already turned the crank" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Turning twice doesn't get you another fortune message!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Your weight is already displayed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Oops, out of fortune messages!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You can't insert a penny, the machine is sold out" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You can't eject, you haven't inserted a penny yet" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="No weight displayed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You turned, but there are no fortune messages left" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="No fortune message dispensed." textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="You have already inserted a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Too late to eject the penny." textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Weight is being displayed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="    You turned" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Getting you the fortune message" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Please wait, we're already giving you a fortune message" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Sorry, you already turned the crank" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Weight already displayed" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Turning twice doesn't get you another fortune message!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="YOU'RE SO LUCKY! You got two fortune messages for your penny! Enjoy your day!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-4.0" layoutY="-3.0" prefHeight="90.0" prefWidth="88.0" style="-fx-background-color: #000000;" text="Oops, out of fortune messages!Oops, out of fortune messages!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+                  <Label fx:id="msg" layoutX="-11.0" layoutY="-3.0" prefHeight="90.0" prefWidth="107.0" style="-fx-background-color: #000000;" text="You inserted a penny" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -191,7 +41,7 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="445.0" layoutY="232.0" prefHeight="39.0" prefWidth="118.0" style="-fx-background-color: #efefef;">
+      <Pane layoutX="445.0" layoutY="246.0" prefHeight="39.0" prefWidth="118.0" style="-fx-background-color: #efefef;">
          <children>
             <Button fx:id="ejectPenny" mnemonicParsing="false" onAction="#ejectPenny_Clicked" prefHeight="39.0" prefWidth="118.0" text="Eject penny">
                <font>
@@ -218,7 +68,38 @@
             </Button>
          </children>
       </Pane>
-      <Button fx:id="nextButton" layoutX="563.0" layoutY="546.0" mnemonicParsing="false" onAction="#nextButton_Clicked" text="Next" />
+      <Button fx:id="nextButton" layoutX="575.0" layoutY="540.0" mnemonicParsing="false" onAction="#nextButton_Clicked" prefHeight="31.0" prefWidth="59.0" text="Next" visible="false">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font></Button>
       <Pane id="entrance" layoutY="-47.0" prefHeight="138.0" prefWidth="202.0" stylesheets="@weighingScalePage.css" />
+      <Pane layoutX="463.0" layoutY="10.0" prefHeight="67.0" prefWidth="200.0" style="-fx-background-color: #d7c99b; -fx-border-width: 20;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="39.0" prefWidth="100.0" text="WEIGHT:">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="ageLabel" layoutX="114.0" layoutY="14.0" prefHeight="39.0" prefWidth="70.0" style="-fx-background-color: #FFFFFF;">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="463.0" layoutY="103.0" prefHeight="67.0" prefWidth="200.0" style="-fx-background-color: #d7c99b; -fx-border-width: 20;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="39.0" prefWidth="100.0" text="POINTS:">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="pointsLabel" layoutX="114.0" layoutY="14.0" prefHeight="39.0" prefWidth="70.0" style="-fx-background-color: #FFFFFF;">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

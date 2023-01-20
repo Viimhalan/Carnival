@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/DP-Project/Carnival/src/carnival/Carnival.java</file>
-            <file>file:/C:/Users/User/Documents/DP-Project/Carnival/src/carnival/mainPage.css</file>
-            <file>file:/C:/Users/User/Documents/DP-Project/Carnival/src/carnival/IceCreamStallController.java</file>
-            <file>file:/C:/Users/User/Documents/DP-Project/Carnival/src/carnival/iceCreamStall.css</file>
+            <file>file:/C:/Users/user/Downloads/Carnival-main/Carnival-main/Carnival/src/carnival/mainPage.css</file>
+            <file>file:/C:/Users/user/Downloads/Carnival-main/Carnival-main/Carnival/src/carnival/fortuneWeighingScale/MessageDroppedState.java</file>
+            <file>file:/C:/Users/user/Downloads/Carnival-main/Carnival-main/Carnival/src/carnival/fortuneWeighingScale/HasPennyState.java</file>
+            <file>file:/C:/Users/user/Downloads/Carnival-main/Carnival-main/Carnival/src/carnival/fortuneWeighingScale/State.java</file>
+            <file>file:/C:/Users/user/Downloads/Carnival-main/Carnival-main/Carnival/src/carnival/WeighingScalePageController.java</file>
         </group>
     </open-files>
 </project-private>
