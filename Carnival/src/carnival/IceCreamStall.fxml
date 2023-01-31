@@ -12,116 +12,116 @@
    <children>
       <Pane layoutX="814.0" prefHeight="74.0" prefWidth="228.0" style="-fx-background-color: white;">
          <children>
-            <Label layoutX="23.0" layoutY="20.0" text="POINTS:" fx:id="score">
+            <Label fx:id="score" layoutX="23.0" layoutY="20.0" text="POINTS:">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Label>
          </children></Pane>
-      <Label fx:id="orderLabel" layoutX="35.0" layoutY="33.0" prefHeight="130.0" prefWidth="466.0" text="Would you want to make an order?">
+      <Label fx:id="orderLabel" layoutX="13.0" layoutY="33.0" prefHeight="130.0" prefWidth="488.0" style="-fx-background-color: white;" text=" Would you want to make an order?" textAlignment="CENTER">
          <font>
             <Font name="Comic Sans MS Bold" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="flavourLabel" layoutX="35.0" layoutY="33.0" prefHeight="130.0" prefWidth="466.0" text="Pick a flavour ..." visible="false">
+      <Label fx:id="flavourLabel" layoutX="13.0" layoutY="33.0" prefHeight="130.0" prefWidth="488.0" style="-fx-background-color: white;" text=" Pick a flavour ..." textAlignment="CENTER" visible="false">
          <font>
             <Font name="Comic Sans MS Bold" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="containerLabel" layoutX="35.0" layoutY="33.0" prefHeight="130.0" prefWidth="466.0" text="Would you like it in a cup or cone?" visible="false">
+      <Label fx:id="containerLabel" layoutX="13.0" layoutY="33.0" prefHeight="130.0" prefWidth="488.0" style="-fx-background-color: white;" text=" Would you like it in a cup or cone?" textAlignment="CENTER" visible="false">
          <font>
             <Font name="Comic Sans MS Bold" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="sauceLabel" layoutX="35.0" layoutY="33.0" prefHeight="130.0" prefWidth="466.0" text="Pick a sauce ..." visible="false">
+      <Label fx:id="sauceLabel" layoutX="13.0" layoutY="33.0" prefHeight="130.0" prefWidth="488.0" style="-fx-background-color: white;" text=" Pick a sauce ..." textAlignment="CENTER" visible="false">
          <font>
             <Font name="Comic Sans MS Bold" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="toppingLabel" layoutX="35.0" layoutY="33.0" prefHeight="130.0" prefWidth="466.0" text="Pick your toppings ..." visible="false">
+      <Label fx:id="toppingLabel" layoutX="13.0" layoutY="33.0" prefHeight="130.0" prefWidth="488.0" style="-fx-background-color: white;" text=" Pick your toppings ..." textAlignment="CENTER" visible="false">
          <font>
             <Font name="Comic Sans MS Bold" size="27.0" />
          </font>
       </Label>
-      <Pane fx:id="orderPane" layoutX="768.0" layoutY="115.0" prefHeight="455.0" prefWidth="258.0">
+      <Pane fx:id="orderPane" layoutX="784.0" layoutY="420.0" prefHeight="174.0" prefWidth="258.0">
          <children>
-            <Button fx:id="yes" layoutX="43.0" layoutY="331.0" mnemonicParsing="false" onAction="#yes_Clicked" style="-fx-background-color: white; -fx-border-style: none;" text="Yes">
+            <Button fx:id="yes" layoutX="26.0" layoutY="74.0" mnemonicParsing="false" onAction="#yes_Clicked" style="-fx-background-color: white; -fx-border-style: none;" text="Yes">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="no" layoutX="158.0" layoutY="331.0" mnemonicParsing="false" onAction="#no_Clicked" style="-fx-background-color: white; -fx-border-style: none;" text="No">
+            <Button fx:id="no" layoutX="153.0" layoutY="74.0" mnemonicParsing="false" onAction="#no_Clicked" style="-fx-background-color: white; -fx-border-style: none;" text="No">
                <font>
                   <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Pane fx:id="menuPane" layoutX="20.0" layoutY="251.0" prefHeight="314.0" prefWidth="723.0" style="-fx-background-color: white;" visible="false">
+      <Pane fx:id="menuPane" layoutX="551.0" layoutY="47.0" prefHeight="501.0" prefWidth="200.0" style="-fx-background-color: darkgreen; -fx-border-color: brown; -fx-border-width: 7;" visible="false">
          <children>
-            <Label fx:id="orderLabel1" layoutX="301.0" layoutY="-18.0" prefHeight="22.0" prefWidth="122.0" text="Menu">
+            <Label fx:id="orderLabel1" layoutX="68.0" layoutY="22.0" prefHeight="35.0" prefWidth="64.0" text="Menu" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="54.0" />
+                  <Font name="Comic Sans MS" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel11" layoutX="14.0" layoutY="56.0" prefHeight="56.0" prefWidth="228.0" text="Flavours:- 4 points">
+            <Label fx:id="orderLabel11" layoutX="14.0" layoutY="50.0" prefHeight="56.0" prefWidth="228.0" text="Flavours:- 4 points" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="24.0" />
+                  <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel111" layoutX="248.0" layoutY="56.0" prefHeight="56.0" prefWidth="183.0" text="Sauces:- 2 points">
+            <Label fx:id="orderLabel111" layoutX="14.0" layoutY="203.0" prefHeight="43.0" prefWidth="183.0" text="Sauces:- 2 points" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="24.0" />
+                  <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel1111" layoutX="481.0" layoutY="56.0" prefHeight="56.0" prefWidth="200.0" text="Toppings:- 1 point">
+            <Label fx:id="orderLabel1111" layoutX="13.0" layoutY="346.0" prefHeight="43.0" prefWidth="166.0" text="Toppings:- 1 point" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="24.0" />
+                  <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel112" layoutX="14.0" layoutY="112.0" prefHeight="56.0" prefWidth="130.0" text="Vanilla ">
+            <Label fx:id="orderLabel112" layoutX="14.0" layoutY="95.0" prefHeight="35.0" prefWidth="64.0" text="&gt; Vanilla " textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel1121" layoutX="14.0" layoutY="168.0" prefHeight="56.0" prefWidth="152.0" text="Strawberry">
+            <Label fx:id="orderLabel1121" layoutX="14.0" layoutY="130.0" prefHeight="35.0" prefWidth="97.0" text="&gt; Strawberry" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel11211" layoutX="14.0" layoutY="230.0" prefHeight="56.0" prefWidth="130.0" text="Chocolate">
+            <Label fx:id="orderLabel11211" layoutX="14.0" layoutY="168.0" prefHeight="35.0" prefWidth="82.0" text="&gt; Chocolate" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel1122" layoutX="248.0" layoutY="112.0" prefHeight="56.0" prefWidth="130.0" text="Chocolate">
+            <Label fx:id="orderLabel1122" layoutX="14.0" layoutY="241.0" prefHeight="35.0" prefWidth="82.0" text="&gt; Chocolate" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel11221" layoutX="248.0" layoutY="168.0" prefHeight="56.0" prefWidth="130.0" text="Nut">
+            <Label fx:id="orderLabel11221" layoutX="14.0" layoutY="276.0" prefHeight="35.0" prefWidth="47.0" text="&gt; Nut" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel112211" layoutX="248.0" layoutY="230.0" prefHeight="56.0" prefWidth="130.0" text="Berry">
+            <Label fx:id="orderLabel112211" layoutX="14.0" layoutY="311.0" prefHeight="35.0" prefWidth="56.0" text="&gt; Berry" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel11222" layoutX="481.0" layoutY="112.0" prefHeight="56.0" prefWidth="130.0" text="Nuts">
+            <Label fx:id="orderLabel11222" layoutX="14.0" layoutY="383.0" prefHeight="35.0" prefWidth="72.0" text="&gt; Nuts" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel112221" layoutX="481.0" layoutY="168.0" prefHeight="56.0" prefWidth="130.0" text="Sprinkles">
+            <Label fx:id="orderLabel112221" layoutX="14.0" layoutY="418.0" prefHeight="35.0" prefWidth="84.0" text="&gt; Sprinkles" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="orderLabel1122211" layoutX="481.0" layoutY="230.0" prefHeight="56.0" prefWidth="207.0" text="Chocolate Chips">
+            <Label fx:id="orderLabel1122211" layoutX="14.0" layoutY="453.0" prefHeight="35.0" prefWidth="143.0" text="&gt; Chocolate Chips" textFill="WHITE">
                <font>
-                  <Font name="Ink Free" size="30.0" />
+                  <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
          </children>
@@ -139,7 +139,7 @@
             <ImageView id="nuts" fx:id="nuts" fitHeight="100.0" fitWidth="113.0" layoutX="41.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" styleClass="nuts" visible="false" />
             <ImageView id="sprinkles" fx:id="sprinkles" fitHeight="100.0" fitWidth="113.0" layoutX="41.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true" styleClass="sprinkles" visible="false" />
             <ImageView id="chocolateChips" fx:id="chocolateChips" fitHeight="100.0" fitWidth="113.0" layoutX="44.0" pickOnBounds="true" preserveRatio="true" styleClass="chocolateChips" visible="false" />
-            <TextField fx:id="orderBill" layoutX="7.0" layoutY="201.0" style="-fx-background-color: white;" visible="false">
+            <TextField fx:id="orderBill" editable="false" layoutX="7.0" layoutY="201.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: white;" visible="false">
                <font>
                   <Font name="Comic Sans MS" size="15.0" />
                </font>
@@ -191,29 +191,34 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="toppingPane" layoutX="797.0" layoutY="374.0" prefHeight="191.0" prefWidth="200.0" visible="false">
+      <Pane fx:id="toppingPane" layoutX="797.0" layoutY="374.0" prefHeight="191.0" prefWidth="200.0" style="-fx-background-color: white;" visible="false">
          <children>
-            <CheckBox fx:id="nutsBox" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" text="Nuts">
+            <CheckBox fx:id="nutsBox" layoutX="8.0" layoutY="21.0" mnemonicParsing="false" text="Nuts">
                <font>
                   <Font name="Comic Sans MS" size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="sprinklesBox" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" text="Sprinkles">
+            <CheckBox fx:id="sprinklesBox" layoutX="8.0" layoutY="68.0" mnemonicParsing="false" text="Sprinkles">
                <font>
                   <Font name="Comic Sans MS" size="20.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="chocolateChipsBox" layoutX="14.0" layoutY="108.0" mnemonicParsing="false" text="Chocolate Chips">
+            <CheckBox fx:id="chocolateChipsBox" layoutX="8.0" layoutY="115.0" mnemonicParsing="false" text="Chocolate Chips">
                <font>
                   <Font name="Comic Sans MS" size="20.0" />
                </font>
             </CheckBox>
-            <Button fx:id="checkout" layoutX="64.0" layoutY="162.0" mnemonicParsing="false" onAction="#checkout_Clicked" style="-fx-background-color: white;" text="Checkout">
+            <Button fx:id="checkout" layoutX="58.0" layoutY="153.0" mnemonicParsing="false" onAction="#checkout_Clicked" text="Checkout">
                <font>
                   <Font name="Comic Sans MS" size="15.0" />
                </font>
             </Button>
          </children>
       </Pane>
+      <ImageView fitHeight="432.0" fitWidth="571.0" layoutX="13.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iceCream.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

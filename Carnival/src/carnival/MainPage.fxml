@@ -12,10 +12,11 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1400.0" styleClass="teaterBooth-button" stylesheets="@mainPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.MainPageController">
    <children>
-      <Button id="teaterBooth" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#theaterBooth_Clicked" prefHeight="362.0" prefWidth="403.0" styleClass="teaterBooth-button" stylesheets="@mainPage.css" />
+      <Button id="iceCreamStall" fx:id="iceCreamStall" alignment="CENTER" layoutX="868.0" layoutY="295.0" mnemonicParsing="false" onAction="#iceCreamStall_Clicked" prefHeight="310.0" prefWidth="258.0" styleClass="iceCreamStall-button" stylesheets="@mainPage.css" textAlignment="CENTER" />
+      <Button id="foodStall" fx:id="foodStall" layoutX="1066.0" layoutY="390.0" mnemonicParsing="false" onAction="#foodStall_Clicked" prefHeight="310.0" prefWidth="364.0" style="-fx-background-color: transparent;" styleClass="foodStall-button" stylesheets="@mainPage.css" />
+      <Button id="teaterBooth" layoutX="99.0" layoutY="346.0" mnemonicParsing="false" onAction="#theaterBooth_Clicked" prefHeight="310.0" prefWidth="346.0" styleClass="teaterBooth-button" stylesheets="@mainPage.css" />
       <Button blendMode="OVERLAY" layoutX="229.0" layoutY="519.0" mnemonicParsing="false" onAction="#theaterBooth_Clicked" prefHeight="80.0" prefWidth="52.0" styleClass="popcorn-button" stylesheets="@mainPage.css" />
       <Button blendMode="OVERLAY" layoutX="37.0" layoutY="519.0" mnemonicParsing="false" onAction="#theaterBooth_Clicked" prefHeight="80.0" prefWidth="52.0" styleClass="popcorn-button" stylesheets="@mainPage.css" />
-      <Button id="iceCreamStall" fx:id="iceCreamStall1" alignment="CENTER" layoutX="1066.0" layoutY="374.0" mnemonicParsing="false" onAction="#iceCreamStall_Clicked" prefHeight="282.0" prefWidth="306.0" styleClass="iceCreamStall-button" stylesheets="@mainPage.css" textAlignment="CENTER" />
       <Pane fx:id="pointsPane" layoutX="1117.0" prefHeight="111.0" prefWidth="283.0" style="-fx-background-color: white;">
          <children>
    

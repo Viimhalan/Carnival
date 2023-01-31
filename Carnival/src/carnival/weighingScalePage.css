@@ -1,20 +1,14 @@
 #AnchorPane{
-    -fx-background-image: url("stage.jpg");
+    -fx-background-image: url("field.jpg");
     -fx-background-size: cover;
 }
 
 #scaleMachine{
-    -fx-background-image: url("weighingscale.png");
-    -fx-background-size: cover;
-}
-
-#entrance{
-    -fx-background-image: url("entrance.gif");
+    -fx-background-image: url("scale.png");
     -fx-background-size: cover;
 }
 
 #scaleBtn{
-    -fx-background-image: url("weighingscale.png");
+    -fx-background-image: url("scale.png");
     -fx-background-size: cover;
 }
-

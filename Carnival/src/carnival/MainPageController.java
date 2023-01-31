@@ -36,6 +36,7 @@ public class MainPageController implements Initializable {
         stage.show();
     }
     
+    @FXML
     public void theaterBooth_Clicked(ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("Theater.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -43,6 +44,17 @@ public class MainPageController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    @FXML
+    public void foodStall_Clicked(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("FoodStall.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

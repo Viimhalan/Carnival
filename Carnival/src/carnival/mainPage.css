@@ -10,11 +10,18 @@
     -fx-background-size: cover;
 }
 
+.foodStall-button{
+    -fx-border-style:  none;
+    -fx-background-color: transparent;
+    -fx-background-image: url("foodStall.png");
+    -fx-background-size: cover;
+}
+
 .teaterBooth-button{
     -fx-border-style:  none;
     -fx-background-color: transparent;
     -fx-background-image: url("TheaterBooth.png");
-    -fx-background-size: cover;
+    -fx-background-size: contain;
 }
 
 .people-button{

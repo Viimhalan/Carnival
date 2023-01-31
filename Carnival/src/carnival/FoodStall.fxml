@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="1042.0" stylesheets="@foodStall.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.FoodStallController">
+   <children>
+      <ImageView fitHeight="382.0" fitWidth="735.0" layoutX="8.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@canopy.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="80.0" layoutY="306.0" prefHeight="215.0" prefWidth="584.0" style="-fx-background-color: darkgreen; -fx-border-color: brown; -fx-border-width: 6;">
+         <children>
+            <Label layoutX="23.0" prefHeight="67.0" prefWidth="46.0" text="M" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="45.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="23.0" text="Burger - 5 Points" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="82.0" text="Hotdog - 3 Points" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="100.0" layoutY="139.0" text="Sandwich - 4 Points" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="67.0" fitWidth="74.0" layoutX="450.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@burger.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="74.0" layoutX="450.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@hotdog.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="74.0" layoutX="450.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@sandwich.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="23.0" layoutY="49.0" prefHeight="67.0" prefWidth="46.0" text="E" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="45.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="148.0" prefHeight="67.0" prefWidth="46.0" text="U" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="45.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="100.0" prefHeight="67.0" prefWidth="46.0" text="N" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="56.0" prefHeight="117.0" prefWidth="733.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="orderLabel" layoutX="99.0" layoutY="33.0" text="What would you like to order?">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="checkoutLabel" layoutX="96.0" layoutY="33.0" text="Would you like to order again?" visible="false">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="845.0" prefHeight="74.0" prefWidth="228.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="33.0" layoutY="20.0" text="POINTS:">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Pane fx:id="orderPane" layoutX="767.0" layoutY="372.0" prefHeight="200.0" prefWidth="276.0">
+         <children>
+            <TextField fx:id="order" layoutX="24.0" layoutY="59.0" prefHeight="31.0" prefWidth="228.0" />
+            <Button fx:id="checkout" layoutX="96.0" layoutY="140.0" mnemonicParsing="false" onAction="#checkoutButton_Clicked" text="Checkout">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Button>
+            <Text fx:id="invalidChoice" layoutX="60.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid choice, try again" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <ImageView fx:id="bag" fitHeight="150.0" fitWidth="200.0" layoutX="851.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@bag.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="checkoutPane" layoutX="760.0" layoutY="405.0" prefHeight="168.0" prefWidth="267.0" visible="false">
+         <children>
+            <Button fx:id="yes" layoutX="69.0" layoutY="103.0" mnemonicParsing="false" onAction="#yesButton_Clicked" text="Yes">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="no" layoutX="153.0" layoutY="103.0" mnemonicParsing="false" onAction="#noButton_Clicked" text="No">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

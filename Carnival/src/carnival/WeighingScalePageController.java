@@ -156,7 +156,7 @@ public class WeighingScalePageController implements Initializable {
                            ,"Society prepares the crime; the criminal commits it."
                            ,"Technology is the art of arranging the world so we do not notice it."};
         
-        int i = r.nextInt(14)+1;
+        int i = r.nextInt(14);
         welcomeMsg.setVisible(false);
         startMsg.setVisible(false);
         msg.setText(fortuneWeighingScale.turnCrank());
