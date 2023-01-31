@@ -8,9 +8,9 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1400.0" stylesheets="@theater.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.TheaterController">
    <children>
-      <Label fx:id="welcome" alignment="CENTER" contentDisplay="TOP" layoutX="340.0" prefHeight="82.0" prefWidth="803.0" styleClass="words" stylesheets="@theater.css" text="WELCOME TO CARNIVAL THEATER!!!" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="welcome" alignment="CENTER" contentDisplay="TOP" layoutX="742.0" layoutY="200.0" prefHeight="82.0" prefWidth="610.0" styleClass="words" stylesheets="@theater.css" text="WELCOME TO CARNIVAL THEATER!!!" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Comic Sans MS Bold" size="40.0" />
+            <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </Label>
       <Pane blendMode="SCREEN" layoutX="949.0" layoutY="455.0" prefHeight="117.0" prefWidth="155.0" style="-fx-background-color: #fff7f2;" styleClass="frame" stylesheets="@theater.css" />
