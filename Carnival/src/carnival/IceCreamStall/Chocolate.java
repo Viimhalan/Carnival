@@ -6,7 +6,7 @@ public class Chocolate extends IceCream{
         description = "Belgian Chocolate";
     }
 
-    protected int cost() {
+    public int cost() {
         return scoopCost;
     }
     

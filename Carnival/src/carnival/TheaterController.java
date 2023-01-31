@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  * @author user
  */
 public class TheaterController implements Initializable {
-
+    @FXML Label score;
     @FXML
     private Label welcome;
     
@@ -98,6 +98,9 @@ public class TheaterController implements Initializable {
         nuggets.setVisible(false);
         writeFries.setVisible(false);
         writeNuggets.setVisible(false);
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        scoreboard.deductScore(10);
+        score.setText("SCORE: " + String.valueOf(scoreboard.getScore()));
     }
 
     @FXML
@@ -178,7 +181,8 @@ public class TheaterController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        score.setText("SCORE: " + String.valueOf(scoreboard.getScore()));
     }    
     
 }

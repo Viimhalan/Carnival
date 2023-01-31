@@ -9,9 +9,9 @@ package carnival.fortuneWeighingScale;
  * @author user
  */
 public interface State {
-    public void insertPenny();
-    public void ejectPenny();
-    public void pressButton();
-    public void turnCrank();
-    public void dispenseMsg();
+    public String insertPenny();
+    public String ejectPenny();
+    public String pressButton();
+    public String turnCrank();
+    public String dispenseMsg();
 }

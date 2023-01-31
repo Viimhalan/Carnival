@@ -15,37 +15,48 @@ public class LuckyState implements State{
         this.fortuneWeighingScale = fortuneWeighingScale;
     }
     
-    public void insertPenny(){
-        System.out.println("Please wait, we're already giving you a fortune message");
+    public String insertPenny(){
+        String lckInsert = "Please wait, we're already giving you a fortune message";
+        System.out.println(lckInsert);
+        return lckInsert;
     }
     
-    public void ejectPenny(){
-        System.out.println("Sorry, you already turned the crank");
+    public String ejectPenny(){
+        String lckEject = "Sorry, you already turned the crank";
+        System.out.println(lckEject);
+        return lckEject;
     }
     
-    public void pressButton(){
-        System.out.println("Weight already displayed");
+    public String pressButton(){
+        String lckPressBtn = "Weight already displayed";
+        System.out.println(lckPressBtn);
+        return lckPressBtn;
     }
     
-    public void turnCrank(){
-        System.out.println("Turning twice doesn't get you another fortune message!");
+    public String turnCrank(){
+        String lckCrank = "Turning twice doesn't get you another fortune message!";
+        System.out.println(lckCrank);
+        return lckCrank;
     }
     
-    public void dispenseMsg(){
-        fortuneWeighingScale.releaseMsg();
+    public String dispenseMsg(){
+        String msg = fortuneWeighingScale.releaseMsg();
+        System.out.println(msg);
         if(fortuneWeighingScale.getCount() == 0){
             fortuneWeighingScale.setState(fortuneWeighingScale.getMessageFinishedState());
         }
         else{
-            fortuneWeighingScale.releaseMsg();
-            System.out.println("YOU'RE SO LUCKY! You got two fortune messages for your penny! Enjoy your day!");
+            msg = fortuneWeighingScale.releaseMsg() + "\nYOU'RE SO LUCKY! You got two fortune messages for your penny! Enjoy your day!";
+            System.out.println(msg);
             if(fortuneWeighingScale.getCount() > 0){
                 fortuneWeighingScale.setState(fortuneWeighingScale.getNoPennyState());
             }
             else{
-                System.out.println("Oops, out of fortune messages!");
+                msg = "Oops, out of fortune messages!";
+                System.out.println(msg);
                 fortuneWeighingScale.setState(fortuneWeighingScale.getMessageFinishedState());
             }
         }
+        return msg;
     }
 }

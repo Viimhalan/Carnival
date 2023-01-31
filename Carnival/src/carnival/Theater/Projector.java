@@ -15,6 +15,10 @@ public class Projector {
         return "Projector on";
     }
     
+    public String off() {
+        return "Projector off";
+    }
+    
     public String play(String movie) {
         return "Projector is going to play " + movie;
     }    

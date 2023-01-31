@@ -13,30 +13,37 @@ import java.util.Random;
 public class HasPennyState implements State{
     Random randomWinner = new Random(System.currentTimeMillis());
     Random randomAge = new Random();
+    public int age = randomAge.nextInt(100-50)+50;
     FortuneWeighingScale fortuneWeighingScale;
     
     public HasPennyState(FortuneWeighingScale fortuneWeighingScale){
         this.fortuneWeighingScale = fortuneWeighingScale;
     }
     
-    public void insertPenny(){
-        System.out.println("You can't insert another penny");
+    public String insertPenny(){
+        String hasPenny = "You can't insert another penny";
+        System.out.println(hasPenny);
+        return hasPenny;
     }
     
-    public void ejectPenny(){
-        System.out.println("Penny returned");
+    public String ejectPenny(){
+        String hasEject = "Penny returned";
+        System.out.println(hasEject);
         fortuneWeighingScale.setState(fortuneWeighingScale.getNoPennyState());
+        return hasEject;
     }
     
-    public void pressButton(){
-        System.out.println("You pressed to check your weight...calculating your weight");
-        int age = randomAge.nextInt(100-50)+50;
-        System.out.println("Your weight is " + age);
+    public String pressButton(){
+        String hasPressBtn = "You pressed to check your weight..." + "\nYour weight is being displayed now!";
+        System.out.println(hasPressBtn);
+//        int age = randomAge.nextInt(100-50)+50;
         fortuneWeighingScale.setState(fortuneWeighingScale.getDisplayWeightState());
+        return hasPressBtn;
     }
     
-    public void turnCrank(){
-        System.out.println("You turned...");
+    public String turnCrank(){
+        String hasCrank = "You turned...";
+        System.out.println(hasCrank);
         int winner = randomWinner.nextInt(10);
         if((winner == 0) && (fortuneWeighingScale.getCount() > 1)){
             fortuneWeighingScale.setState(fortuneWeighingScale.getLuckyState());
@@ -44,10 +51,13 @@ public class HasPennyState implements State{
         else{
             fortuneWeighingScale.setState(fortuneWeighingScale.getMessageDroppedState());
         }
+        return hasCrank;
     }
     
-    public void dispenseMsg(){
-        System.out.println("No fortune message dispensed");
+    public String dispenseMsg(){
+        String hasDispense = "Fortune message will be dispensed after weight displayed";
+        System.out.println(hasDispense);
+        return hasDispense;
     }
     
     public String toString() {
