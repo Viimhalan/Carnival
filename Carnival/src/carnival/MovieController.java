@@ -27,6 +27,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -34,9 +35,6 @@ import javafx.stage.Stage;
  * @author user
  */
 public class MovieController implements Initializable {
-
-    @FXML
-    private MediaView mv;
     
     @FXML
     private MediaView mv1;
@@ -68,14 +66,8 @@ public class MovieController implements Initializable {
     CarnivalFacade homeTheater = new CarnivalFacade(speaker,dvd,projector,lights,screen1,user);
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-        URL video = MovieController.class.getResource("MovieStarts.mp4");
-        Media media = new Media(video.toExternalForm());
-        MediaPlayer mediaplayer = new MediaPlayer(media);
-        mv.setMediaPlayer(mediaplayer);
-        mediaplayer.setAutoPlay(true); 
-        
+    public void initialize(URL url, ResourceBundle rb) { 
+        facade.setVisible(true);
         facade.setText(homeTheater.watchMovie("Jurassic World"));
     }
     
@@ -88,7 +80,8 @@ public class MovieController implements Initializable {
         Media media = new Media(video.toExternalForm());
         MediaPlayer mediaplayer = new MediaPlayer(media);
         mv1.setMediaPlayer(mediaplayer);
-        mediaplayer.setAutoPlay(true);   
+        mediaplayer.setAutoPlay(true); 
+        mediaplayer.setStopTime(Duration.millis(10000.0));
     }
     
     public void endTrailer(ActionEvent event) throws IOException {
@@ -97,11 +90,6 @@ public class MovieController implements Initializable {
         end.setVisible(false);
         mv1.setVisible(false);
         exit.setVisible(true);
-        URL video = MovieController.class.getResource("MovieEnd_Trim.mp4");
-        Media media = new Media(video.toExternalForm());
-        MediaPlayer mediaplayer = new MediaPlayer(media);
-        mv.setMediaPlayer(mediaplayer);
-        mediaplayer.setAutoPlay(true); 
         
         facade.setText(homeTheater.endMovie());   
     }

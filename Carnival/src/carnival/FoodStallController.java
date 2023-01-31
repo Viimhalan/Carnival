@@ -1,5 +1,7 @@
 package carnival;
 
+import carnival.FoodStall.Food;
+import carnival.FoodStall.FoodStall;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,12 +58,25 @@ public class FoodStallController implements Initializable {
     @FXML 
     public void checkoutButton_Clicked(ActionEvent event) {
         if(order.getText().equalsIgnoreCase("Burger")){
+            FoodStall burger = new FoodStall();
+
+            Food food = burger.orderFood("burger");
+            System.out.println("Ordered a " + food );
+            
             checkout();
         }
         else if(order.getText().equalsIgnoreCase("Hotdog")){
+            FoodStall hotdog = new FoodStall();
+
+            Food food2 = hotdog.orderFood("hotdog");
+            System.out.println("Ordered a " + food2 );
             checkout();
         }
         else if(order.getText().equalsIgnoreCase("Sandwich")){
+            FoodStall sandwich = new FoodStall();
+            
+            Food food1 = sandwich.orderFood("sandwich");
+            System.out.println("Ordered a " + food1 );
             checkout();
         }
         else{
