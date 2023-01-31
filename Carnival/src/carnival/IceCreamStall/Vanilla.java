@@ -6,7 +6,7 @@ public class Vanilla extends IceCream{
         description = "Madagascar Vanilla";
     }
 
-    public int cost() {
+    protected int cost() {
         return scoopCost;
     }
     

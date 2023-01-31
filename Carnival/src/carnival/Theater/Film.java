@@ -18,9 +18,5 @@ public class Film {
     public String off() {
         return "Film is removed from the projector";
     }
-    
-    public String eject() {
-        return "Film eject";
-    }
      
 }
