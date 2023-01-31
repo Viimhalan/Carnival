@@ -6,9 +6,9 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.MovieController">
+<AnchorPane prefHeight="700.0" prefWidth="1400.0" styleClass="seat" stylesheets="@theater.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carnival.MovieController">
    <children>
-      <MediaView fx:id="mv" fitHeight="600.0" fitWidth="1050.0" layoutX="8.0" />
+      <MediaView fx:id="mv" fitHeight="600.0" fitWidth="1050.0" layoutY="3.0" />
       <Label fx:id="facade" alignment="CENTER" layoutX="269.0" layoutY="130.0" prefHeight="345.0" prefWidth="550.0" text="Label" textFill="#2b0f0f">
          <font>
             <Font name="Comic Sans MS Bold" size="16.0" />
@@ -25,7 +25,7 @@
             <Font name="Comic Sans MS" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="exit" alignment="CENTER" blendMode="EXCLUSION" layoutX="982.0" layoutY="534.0" mnemonicParsing="false" onAction="#exit" prefHeight="52.0" prefWidth="80.0" styleClass="exit" stylesheets="@theater.css" visible="false" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="982.0" AnchorPane.rightAnchor="2.0">
+      <Button fx:id="exit" alignment="CENTER" blendMode="EXCLUSION" layoutX="1272.0" layoutY="560.0" mnemonicParsing="false" onAction="#exit" prefHeight="91.0" prefWidth="128.0" styleClass="exit" stylesheets="@theater.css" visible="false" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="1272.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Comic Sans MS" size="14.0" />
          </font>
