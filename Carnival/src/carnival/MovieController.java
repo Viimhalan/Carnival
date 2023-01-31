@@ -27,6 +27,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -88,7 +89,8 @@ public class MovieController implements Initializable {
         Media media = new Media(video.toExternalForm());
         MediaPlayer mediaplayer = new MediaPlayer(media);
         mv1.setMediaPlayer(mediaplayer);
-        mediaplayer.setAutoPlay(true);   
+        mediaplayer.setAutoPlay(true); 
+        mediaplayer.setStopTime(Duration.millis(5000.0));
     }
     
     public void endTrailer(ActionEvent event) throws IOException {
