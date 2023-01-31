@@ -15,31 +15,42 @@ public class MessageDroppedState implements State{
         this.fortuneWeighingScale = fortuneWeighingScale;
     }
     
-    public void insertPenny(){
-        System.out.println("Please wait, we're already giving you a fortune message");
+    public String insertPenny(){
+        String drpInsert = "Please wait, we're already giving you a fortune message";
+        System.out.println(drpInsert);
+        return drpInsert;
     }
     
-    public void ejectPenny(){
-        System.out.println("Sorry, you already turned the crank");
+    public String ejectPenny(){
+        String drpEject = "Sorry, you already turned the crank";
+        System.out.println(drpEject);
+        return drpEject;
     }
     
-    public void turnCrank(){
-        System.out.println("Turning twice doesn't get you another fortune message!");
+    public String pressButton(){
+        String drpPressBtn = "Your weight is already displayed";
+        System.out.println(drpPressBtn);
+        return drpPressBtn;
     }
     
-    public void pressButton(){
-        System.out.println("Your weight is already displayed");
+    public String turnCrank(){
+        String drpCrank = "Turning twice doesn't get you another fortune message!";
+        System.out.println(drpCrank);
+        return drpCrank;
     }
     
-    public void dispenseMsg(){
-        fortuneWeighingScale.releaseMsg();
+    public String dispenseMsg(){
+        String msg = fortuneWeighingScale.releaseMsg();
+        System.out.println(msg);
         if(fortuneWeighingScale.getCount() > 0){
             fortuneWeighingScale.setState(fortuneWeighingScale.getNoPennyState());
         }
         else{
-            System.out.println("Oops, out of fortune messages!");
+            msg = "Oops, out of fortune messages!";
+            System.out.println(msg);
             fortuneWeighingScale.setState(fortuneWeighingScale.getMessageFinishedState());
         }
+        return msg;
     }
     
     public String toString() {

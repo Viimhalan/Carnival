@@ -6,7 +6,7 @@ public class Strawberry extends IceCream{
         description = "Berry Strawberry";
     }
 
-    protected int cost() {
+    public int cost() {
         return scoopCost;
     }
     

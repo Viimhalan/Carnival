@@ -36,21 +36,21 @@ public class FortuneWeighingScale {
         }
     }
     
-    public void insertPenny(){
-        state.insertPenny();
+    public String insertPenny(){
+        return state.insertPenny();
     }
     
-    public void ejectPenny(){
-        state.ejectPenny();
+    public String ejectPenny(){
+        return state.ejectPenny();
     }
     
-    public void pressButton(){
-        state.pressButton();
+    public String pressButton(){
+        return state.pressButton();
     }
     
-    public void turnCrank(){
-        state.turnCrank();
-        state.dispenseMsg();
+    public String turnCrank(){
+        String crankMsg = state.turnCrank() + "\n" + state.dispenseMsg();
+        return crankMsg;
     }
     
     public void setState(State state){
@@ -61,11 +61,13 @@ public class FortuneWeighingScale {
         return state;
     }
     
-    void releaseMsg(){
-        System.out.println("A fortune message drops out from the weighing scale machine...");
+    String releaseMsg(){
+        String releaseMsg = "A fortune message drops out from the weighing scale machine...";
+//        System.out.println(releaseMsg);
         if(count != 0){
             count = count - 1;
         }
+        return releaseMsg;
     }
     
     public void refill(int count){
