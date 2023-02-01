@@ -2,9 +2,7 @@ package carnival;
 
 import carnival.FoodStall.Food;
 import carnival.FoodStall.FoodStall;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import carnival.Scoreboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +18,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class FoodStallController implements Initializable {
     
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+    @FXML private Label score;
     @FXML private Pane orderPane;
     @FXML private Button no; 
     @FXML private Label checkoutLabel; 
@@ -57,12 +59,14 @@ public class FoodStallController implements Initializable {
     
     @FXML 
     public void checkoutButton_Clicked(ActionEvent event) {
+        Scoreboard scoreboard=Scoreboard.getInstance();
         if(order.getText().equalsIgnoreCase("Burger")){
             FoodStall burger = new FoodStall();
 
             Food food = burger.orderFood("burger");
             System.out.println("Ordered a " + food );
-            
+            scoreboard.deductScore(5);
+            score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
             checkout();
         }
         else if(order.getText().equalsIgnoreCase("Hotdog")){
@@ -70,6 +74,8 @@ public class FoodStallController implements Initializable {
 
             Food food2 = hotdog.orderFood("hotdog");
             System.out.println("Ordered a " + food2 );
+            scoreboard.deductScore(3);
+            score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
             checkout();
         }
         else if(order.getText().equalsIgnoreCase("Sandwich")){
@@ -77,6 +83,8 @@ public class FoodStallController implements Initializable {
             
             Food food1 = sandwich.orderFood("sandwich");
             System.out.println("Ordered a " + food1 );
+            scoreboard.deductScore(4);
+            score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
             checkout();
         }
         else{
@@ -100,7 +108,9 @@ public class FoodStallController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        Scoreboard scoreboard=Scoreboard.getInstance();
+        score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
+
     }    
     
 }
