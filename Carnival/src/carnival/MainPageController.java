@@ -19,10 +19,9 @@ import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
     @FXML private Label score;
-    @FXML
-    private Button iceCreamStall;
-    private Button teaterBooth;
-    @FXML
+    @FXML private Button iceCreamStall;
+    @FXML private Button teaterBooth;
+    @FXML private Button exit;
     private Pane pointsPane;
     private Stage stage;
     private Scene scene;
@@ -41,6 +40,7 @@ public class MainPageController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
         }
         else{
@@ -61,6 +61,7 @@ public class MainPageController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
         }
         else{
@@ -81,6 +82,7 @@ public class MainPageController implements Initializable {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
         }
         else{   // if points is less than or equal to minimum show the alert message box
@@ -90,8 +92,17 @@ public class MainPageController implements Initializable {
 
     }
     
+    @FXML
+    public void exitButton_Clicked(ActionEvent event) throws IOException{
+        score.setText("POINTS: 0");
+        root = FXMLLoader.load(getClass().getResource("WelcomePage.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Scoreboard scoreboard=Scoreboard.getInstance();
