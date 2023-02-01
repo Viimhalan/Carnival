@@ -598,6 +598,7 @@ public class IceCreamStallController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         Scoreboard scoreboard=Scoreboard.getInstance();
         score.setText("POINTS: " + String.valueOf(scoreboard.getScore()));
     }
