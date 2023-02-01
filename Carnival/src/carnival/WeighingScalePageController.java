@@ -97,6 +97,7 @@ public class WeighingScalePageController implements Initializable {
         welcomeMsg.setVisible(false);
         startMsg.setVisible(false);
         msg.setText(fortuneWeighingScale.insertPenny());
+        fortune.setVisible(false);
         msg.setVisible(true);
     }
     
@@ -107,6 +108,7 @@ public class WeighingScalePageController implements Initializable {
         welcomeMsg.setVisible(false);
         startMsg.setVisible(false);
         msg.setText(fortuneWeighingScale.ejectPenny());
+        fortune.setVisible(false);
         msg.setVisible(true);
     }
     
@@ -134,6 +136,7 @@ public class WeighingScalePageController implements Initializable {
         welcomeMsg.setVisible(false);
         startMsg.setVisible(false);
         msg.setText(fortuneWeighingScale.pressButton());
+        fortune.setVisible(false);
         msg.setVisible(true);
 
     }

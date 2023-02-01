@@ -34,7 +34,7 @@
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Button>
-      <Label layoutX="215.0" layoutY="322.0" prefHeight="60.0" prefWidth="110.0" style="-fx-background-color: red;" text=" Theater" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="215.0" layoutY="322.0" prefHeight="60.0" prefWidth="110.0" style="-fx-background-color: red;" text=" Theatre" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>

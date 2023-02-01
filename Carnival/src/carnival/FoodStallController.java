@@ -45,6 +45,7 @@ public class FoodStallController implements Initializable {
         bag.setVisible(true);
         checkoutLabel.setVisible(true);
         order.clear();
+        invalidChoice.setVisible(false);
         orderLabel.setVisible(false);
         orderPane.setVisible(false);
     }

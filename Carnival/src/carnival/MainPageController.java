@@ -31,8 +31,8 @@ public class MainPageController implements Initializable {
     @FXML
     public void iceCreamStall_Clicked(ActionEvent event) throws IOException{
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Alert");
-        alert.setContentText("Sorry.You do not have enough points!");
+        alert.setTitle("Entry Access Denied!");
+        alert.setContentText("Sorry. You have insufficient points!");
         Scoreboard scoreboard=Scoreboard.getInstance();
         int points=scoreboard.getScore();
         if (points>10) {
@@ -52,8 +52,8 @@ public class MainPageController implements Initializable {
     @FXML
     public void theaterBooth_Clicked(ActionEvent event) throws IOException{
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Alert");
-        alert.setContentText("Sorry.You do not have enough points!");
+        alert.setTitle("Entry Access Denied!");
+        alert.setContentText("Sorry. You have insufficient points!");
         Scoreboard scoreboard=Scoreboard.getInstance();
         int points=scoreboard.getScore();
         if (points>10) {
@@ -73,8 +73,8 @@ public class MainPageController implements Initializable {
     @FXML
     public void foodStall_Clicked(ActionEvent event) throws IOException{
         Alert alert = new Alert(Alert.AlertType.INFORMATION); // setting up the alert message box
-        alert.setTitle("Alert"); // setting up the alert message object
-        alert.setContentText("Sorry.You do not have enough points!"); // setting up the alert message box
+        alert.setTitle("Entry Access Denied!"); // setting up the alert message object
+        alert.setContentText("Sorry. You have insufficient points!"); // setting up the alert message box
         Scoreboard scoreboard=Scoreboard.getInstance(); // get scoreboard
         int points=scoreboard.getScore();// get points
         if (points>10) {   // check if current points is greater than minimum.Right now it is set to 10
